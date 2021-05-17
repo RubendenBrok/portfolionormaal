@@ -1,36 +1,41 @@
+/** @jsx jsx */
+
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { css, jsx } from '@emotion/react'
+
+import { colors, variables } from '../styles/global'
 
 interface Props {
   siteTitle: string
 }
 
 const Header = ({ siteTitle }: Props) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header css={css``}>
     <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+      css={css`
+        display: flex;
+        margin: 0 auto;
+        width: ${variables.siteWidthDesktop};
+        padding: 20px 0 20px 0;
+        justify-content: flex-end;
+      `}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+      <nav>
+        <Link to="/" className="navLink">
+          Home
         </Link>
-      </h1>
+        <Link to="/portfolio" className="navLink">
+          Portfolio
+        </Link>
+        <Link to="poezie" className="navLink">
+          Poëzie
+        </Link>
+        <Link to="/overmij" className="navLink">
+          Over mij
+        </Link>
+      </nav>
     </div>
   </header>
 )
