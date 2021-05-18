@@ -32,8 +32,11 @@ const Header = ({ siteTitle }: Props) => (
         <Link to="poezie" className="navLink">
           Poëzie
         </Link>
-        <Link to="/overmij" className="navLink">
+        <Link to="/about" className="navLink">
           Over mij
+        </Link>
+        <Link to="" className="navLink">
+          Shop
         </Link>
       </nav>
     </div>

@@ -6,9 +6,11 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 
-import { globalCss } from '../styles/global'
+import { globalCss, variables, colors } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
-import { glob } from 'glob'
+
+import { FaInstagram } from 'react-icons/fa'
+import { FiMail } from 'react-icons/fi'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -38,15 +40,51 @@ const Layout = ({ children }) => {
         siteTitle={data.allDatoCmsSite.edges[0].node.globalSeo.siteName}
       />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
+        css={css`
+          margin: 0 auto;
+          max-width: ${variables.siteWidthDesktop};
+          padding: 0px 1.0875rem 1.45rem;
+          padding-top: 0;
+        `}
       >
         <main>{children}</main>
-        <footer>© Marjan de Ridder, All rights reverved</footer>
+        <footer
+          css={css`
+            margin-top: 80px;
+            font-size: 1rem;
+            float: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+          `}
+        >
+          <a
+            href="https://www.instagram.com/ik_maak_anders_iets/"
+            css={css`
+              margin-bottom: 5px;
+            `}
+          >
+            <b>Instagram - </b>
+            <FaInstagram color={colors.textColor} className="react-icons" />
+          </a>
+          <a
+            href="mailto:marjanderidder@live.be"
+            css={css`
+              margin-bottom: 15px;
+            `}
+          >
+            <b>Mail - </b>
+            <FiMail color={colors.textColor} className="react-icons" />
+          </a>
+          <p
+            css={css`
+              font-size: 0.8rem;
+              opacity: 0.6;
+            `}
+          >
+            © Marjan de Ridder, All rights reserved
+          </p>
+        </footer>
       </div>
     </div>
   )

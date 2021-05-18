@@ -4,7 +4,7 @@ export const colors = {
 }
 
 export const variables = {
-  siteWidthDesktop: '80%',
+  siteWidthDesktop: '70%',
 }
 
 export const globalCss = `
@@ -12,9 +12,25 @@ export const globalCss = `
     color: ${colors.textColor};
     font-family: Helvetica;
     user-select: none;
-
-
 }
+
+.container {
+  margin-top: 40px;
+}
+
+a{
+  text-decoration: none;
+}
+
+footer a{
+  opacity: 0.6;
+  transition: all 0.3s
+}
+
+footer a:hover{
+  opacity: 1;
+}
+
 
 .navLink {
     text-decoration: none;
@@ -38,5 +54,12 @@ position: absolute;
 left: 50%;
 top: 0px;
 transform: translate(-50%, -50%);
+}
+
+.show{ opacity: 1;}
+.hide{opacity: 0;}
+
+.react-icons {
+  vertical-align: middle;
 }
 `
