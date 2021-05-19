@@ -32,20 +32,20 @@ const Header = ({ siteTitle }: Props) => (
           width: 100%;
         `}
       >
-        <Link to="/" className="navLink">
-          Home
-        </Link>
-        <Link to="/portfolio" className="navLink">
-          Portfolio
-        </Link>
-        <Link to="/poezie" className="navLink">
-          Poëzie
+        <Link to="" className="navLink">
+          Shop
         </Link>
         <Link to="/about" className="navLink">
           Over mij
         </Link>
-        <Link to="" className="navLink">
-          Shop
+        <Link to="/poezie" className="navLink">
+          Poëzie
+        </Link>
+        <Link to="/portfolio" className="navLink">
+          Portfolio
+        </Link>
+        <Link to="/" className="navLink">
+          Home
         </Link>
       </nav>
     </div>
