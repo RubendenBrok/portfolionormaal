@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { css, jsx } from '@emotion/react'
+import { MobileMenu } from './mobilemenu'
 
 import { colors, variables } from '../styles/global'
 
@@ -22,14 +23,22 @@ const Header = ({ siteTitle }: Props) => (
         justify-content: flex-end;
       `}
     >
-      <nav>
+      <MobileMenu />
+      <nav
+        css={css`
+          ${variables.mobile} {
+            display: none;
+          }
+          width: 100%;
+        `}
+      >
         <Link to="/" className="navLink">
           Home
         </Link>
         <Link to="/portfolio" className="navLink">
           Portfolio
         </Link>
-        <Link to="poezie" className="navLink">
+        <Link to="/poezie" className="navLink">
           Poëzie
         </Link>
         <Link to="/about" className="navLink">

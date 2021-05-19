@@ -1,10 +1,13 @@
 export const colors = {
-  backgroundColor: 'rgb(255,240,230)',
+  backgroundColor: 'rgb(255,255,255)',
   textColor: 'rgb(70,70,70)',
 }
 
 export const variables = {
   siteWidthDesktop: '70%',
+  breakPoint: 700,
+  desktop: '@media (min-width: 700px)',
+  mobile: '@media (max-width: 699px)',
 }
 
 export const globalCss = `
@@ -12,6 +15,10 @@ export const globalCss = `
     color: ${colors.textColor};
     font-family: Helvetica;
     user-select: none;
+}
+
+body{
+  background-color: ${colors.backgroundColor}
 }
 
 .container {
@@ -34,7 +41,14 @@ footer a:hover{
 
 .navLink {
     text-decoration: none;
-    margin-left: 60px;
+    margin-left: 6%;
+    float: right;
+}
+
+.navLinkMobile {
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 2rem;
 }
 
 .arrowContainer{
