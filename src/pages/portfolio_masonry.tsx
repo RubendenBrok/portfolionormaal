@@ -17,15 +17,15 @@ export const Portfolio = ({ data }: any) => {
 
   return (
     <Layout>
-      <SEO title="Portfolio" />
+      <SEO title="TITLE" />
 
       <div className="container">
-        <h1>Portfolio</h1>
+        <h1>TITLE</h1>
         <ResponsiveMasonry columsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter={'20px'}>
             {portfolio.map((item: any, index: number) => {
               return (
-                <Link to={`/portfolio/${index}`}>
+                <Link to={`/portfolio/${index}`} key={`${index}img`}>
                   <div
                     css={css`
                       &:hover {
@@ -33,7 +33,6 @@ export const Portfolio = ({ data }: any) => {
                         opacity: 0.4;
                       }
                     `}
-                    key={index + 'img'}
                   >
                     <GatsbyImage
                       image={item.hoofdafbeelding.gatsbyImageData}

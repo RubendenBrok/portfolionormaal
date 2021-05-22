@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
           `}
         >
           <a
-            href="https://www.instagram.com/ik_maak_anders_iets/"
+            href="INSTAGRAM LINK"
             css={css`
               margin-bottom: 5px;
             `}
@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
             <FaInstagram color={colors.textColor} className="react-icons" />
           </a>
           <a
-            href="mailto:marjanderidder@live.be"
+            href="MAIL LNK"
             css={css`
               margin-bottom: 15px;
             `}
@@ -82,7 +82,7 @@ const Layout = ({ children }) => {
               opacity: 0.6;
             `}
           >
-            © Marjan de Ridder, All rights reserved
+            FOOTER MESSAGE
           </p>
         </footer>
       </div>

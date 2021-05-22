@@ -22,7 +22,7 @@ body{
 }
 
 .container {
-  margin-top: 40px;
+
 }
 
 a{
@@ -38,7 +38,6 @@ footer a:hover{
   opacity: 1;
 }
 
-
 .navLink {
     text-decoration: none;
     margin-left: 6%;
@@ -49,25 +48,6 @@ footer a:hover{
   text-decoration: none;
   margin-left: 20px;
   font-size: 2rem;
-}
-
-.arrowContainer{
-    position: relative;
-    width: 40px;
-    opacity: 0.2;
-    &:hover {
-      opacity: 0.6;
-      cursor: pointer;
-    } 
-}
-
-.arrowButton {
-width: 20px;
-height: 20px;
-position: absolute;
-left: 50%;
-top: 0px;
-transform: translate(-50%, -50%);
 }
 
 .show{ opacity: 1;}

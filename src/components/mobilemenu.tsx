@@ -9,7 +9,7 @@ import { Global, css, jsx } from '@emotion/react'
 import React, { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
-export function MobileMenu() {
+export const MobileMenu = () => {
   const [open, setOpen] = useState(false)
 
   const styles = useSpring({
@@ -84,6 +84,7 @@ export function MobileMenu() {
             cursor: pointer;
           }
         `}
+        role="button"
         onClick={() => setOpen(!open)}
       >
         {!open ? (
