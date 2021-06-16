@@ -1,33 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Ruben den Brok Creative`,
+    description: `Building interactive web experiences tailored to your needs`,
+    author: `Ruben den Brok`,
   },
   plugins: [
     {
-      resolve: `gatsby-source-datocms`,
+      resolve: "gatsby-plugin-anchor-links",
       options: {
-        // You can find your read-only API token under the Settings > API tokens
-        // section of your administrative area. Make sure to grant both CDA and CMA permissions.
-        apiToken: `1b4f38fa922e78f67f52336dcc233d`,
-
-        // The project environment to read from. Defaults to the primary environment:
-        environment: `main`,
-
-        // If you are working on development/staging environment, you might want to
-        // preview the latest version of records instead of the published one:
-        previewMode: false,
-
-        // Disable automatic reloading of content when some change occurs on DatoCMS:
-        disableLiveReload: false,
-
-        // Setup locale fallbacks
-        // In this example, if some field value is missing in Italian, fall back to English
-        localeFallbacks: {
-          it: ['en'],
-        },
-      },
+        offset: -400,
+        duration: 2000
+      }
     },
     `gatsby-plugin-react-helmet`,
     {

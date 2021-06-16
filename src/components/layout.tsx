@@ -4,55 +4,107 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import { BsChevronCompactDown } from 'react-icons/bs'
+
 import Header from './header'
 
-import { globalCss, variables, colors } from '../styles/global'
+import { variables } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    {
-      allDatoCmsSite {
-        edges {
-          node {
-            globalSeo {
-              siteName
-              titleSuffix
-            }
-          }
-        }
-      }
-    }
-  `)
+type layoutProps = {
+  children: React.ReactNode
+  textColor: string
+  bgColor: string
+  accentColor1: string
+  accentColor2: string
+  bgAngle: number
+  clipArr: number[]
+  clipOpacity: number
+  atDivision: number
+}
 
-  console.log(data)
+const Layout = ({
+  children,
+  textColor,
+  bgColor,
+  accentColor1,
+  accentColor2,
+  bgAngle,
+  clipArr,
+  clipOpacity,
+  atDivision,
+}: layoutProps) => {
+  console.log(clipArr)
   return (
-    <div>
-      <Global
-        styles={css`
-          ${globalCss}
+    <div
+      css={css`
+        background-color: ${bgColor};
+
+        color: ${textColor};
+      `}
+    >
+      <Global styles={css``} />
+      {/*
+      <div
+        css={css`
+          width: 30%;
         `}
-      />
-      <Header
-        siteTitle={data.allDatoCmsSite.edges[0].node.globalSeo.siteName}
-      />
+      >
+        <Header />
+      </div>
+      */}
       <div
         css={css`
           margin: 0 auto;
-          max-width: ${variables.siteWidthDesktop};
-          padding: 0px 1.0875rem 1.45rem;
-          padding-top: 0;
+          width: 100%;
+          padding: 0;
         `}
       >
-        <main>{children}</main>
+        {/* <div
+          className={`container`}
+          css={css`
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+          `}
+        ></div> */}
+
+        <main
+          css={css`
+            width: 80%;
+            margin: auto;
+            ${variables.mobile} {
+              width: 90%;
+            }
+          `}
+        >
+          {children}
+          <BsChevronCompactDown
+            color={textColor}
+            css={css`
+              position: fixed;
+              opacity: 0.1;
+              transition: opacity 0.3s;
+              left: 50%;
+              bottom: 3%;
+              width: 100px;
+              height: 100px;
+              transform: translateX(-50%) scaleX(1.4);
+              &:hover {
+                opacity: 0.8;
+                cursor: pointer;
+              }
+            `}
+          />
+        </main>
         <footer
           css={css`
             margin-top: 80px;
             font-size: 1rem;
-            float: right;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -65,7 +117,7 @@ const Layout = ({ children }) => {
             `}
           >
             <b>Instagram - </b>
-            <FaInstagram color={colors.textColor} className="react-icons" />
+            <FaInstagram color="var(--textColor)" className="react-icons" />
           </a>
           <a
             href="MAIL LNK"
@@ -74,7 +126,7 @@ const Layout = ({ children }) => {
             `}
           >
             <b>Mail - </b>
-            <FiMail color={colors.textColor} className="react-icons" />
+            <FiMail color="var(--textColor)" className="react-icons" />
           </a>
           <p
             css={css`

@@ -14,7 +14,7 @@ export const MobileMenu = () => {
 
   const styles = useSpring({
     height: open ? '400px' : '0px',
-    borderColor: open ? colors.textColor : colors.backgroundColor,
+    borderColor: open ? 'var(--textColor)' : 'var(--bgColor)',
   })
 
   const navStyles = useSpring({
@@ -35,7 +35,7 @@ export const MobileMenu = () => {
           position: fixed;
           top: 10px;
           right: 10px;
-          background-color: ${colors.backgroundColor};
+          background-color: 'var(--bgColor)';
           width: calc(100vw - 20px);
           border-radius: 20px;
           border-width: 1px;
@@ -78,7 +78,7 @@ export const MobileMenu = () => {
           right: 20px;
           z-index: 10;
 
-          background-color: ${colors.backgroundColor};
+          background-color: 'var(--bgColor)';
 
           &:hover {
             cursor: pointer;
@@ -89,7 +89,7 @@ export const MobileMenu = () => {
       >
         {!open ? (
           <HiMenuAlt2
-            color={colors.textColor}
+            color="var(--textColor)"
             css={css`
               width: 45px;
               height: 45px;
@@ -97,7 +97,7 @@ export const MobileMenu = () => {
           />
         ) : (
           <GrClose
-            color={colors.textColor}
+            color="var(--textColor)"
             css={css`
               width: 45px;
               height: 45px;
