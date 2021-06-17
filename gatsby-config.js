@@ -8,8 +8,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -400,
-        duration: 2000
+        offset: 10,
+        duration: 500
       }
     },
     `gatsby-plugin-react-helmet`,

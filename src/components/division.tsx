@@ -2,6 +2,7 @@
 import { css, jsx } from '@emotion/react'
 import ScrollableSection from 'react-update-url-on-scroll'
 import React from 'react'
+import { blockSize } from '../pages/index'
 
 type divisionProps = {
   children: React.ReactNode

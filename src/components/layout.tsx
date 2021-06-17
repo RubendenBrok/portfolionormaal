@@ -1,13 +1,15 @@
 /** @jsx jsx */
 
-import React from 'react'
+import React, { Ref, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
-import { BsChevronCompactDown } from 'react-icons/bs'
+import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs'
+import Fade from 'react-reveal/Fade'
 
 import Header from './header'
-
+import content from '../content/content'
 import { variables } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
 
@@ -23,7 +25,8 @@ type layoutProps = {
   bgAngle: number
   clipArr: number[]
   clipOpacity: number
-  atDivision: number
+  currentBlockIndex: number
+  y: any
 }
 
 const Layout = ({
@@ -35,9 +38,12 @@ const Layout = ({
   bgAngle,
   clipArr,
   clipOpacity,
-  atDivision,
+  currentBlockIndex,
+  y,
 }: layoutProps) => {
-  console.log(clipArr)
+  useEffect(() => {
+    console.log(currentBlockIndex)
+  })
   return (
     <div
       css={css`
@@ -83,25 +89,81 @@ const Layout = ({
           `}
         >
           {children}
-          <BsChevronCompactDown
-            color={textColor}
-            css={css`
-              position: fixed;
-              opacity: 0.1;
-              transition: opacity 0.3s;
-              left: 50%;
-              bottom: 3%;
-              width: 100px;
-              height: 100px;
-              transform: translateX(-50%) scaleX(1.4);
-              &:hover {
-                opacity: 0.8;
-                cursor: pointer;
-              }
-            `}
-          />
+
+          {currentBlockIndex < content.length - 1 && (
+            <BsChevronCompactDown
+              color={textColor}
+              css={css`
+                position: fixed;
+                transition: opacity 0.3s;
+                opacity: 0.3;
+                left: 50%;
+                bottom: 3%;
+                width: 100px;
+                height: 60px;
+                transform: translateX(-50%) scaleX(1.4);
+                &:hover {
+                  opacity: 0.8;
+                  cursor: pointer;
+                }
+              `}
+              onClick={() => {
+                console.log(currentBlockIndex)
+                if (typeof window !== 'undefined') {
+                  let element: any = document.getElementById(
+                      content[currentBlockIndex + 1].name
+                    ),
+                    bodyRect = document.body.getBoundingClientRect(),
+                    elemRect = element.getBoundingClientRect(),
+                    offset = elemRect.top - bodyRect.top
+
+                  y.start({
+                    to: { y: offset + 50 },
+                    from: { y: window.pageYOffset },
+                  })
+                }
+              }}
+            />
+          )}
+
+          {currentBlockIndex > 0 && (
+            <BsChevronCompactUp
+              color={textColor}
+              css={css`
+                position: fixed;
+                transition: opacity 0.3s;
+                opacity: 0.3;
+                left: 50%;
+                top: 3%;
+                width: 100px;
+                height: 60px;
+                transform: translateX(-50%) scaleX(1.4);
+                &:hover {
+                  opacity: 0.8;
+                  cursor: pointer;
+                }
+              `}
+              onClick={() => {
+                console.log(currentBlockIndex)
+                if (typeof window !== 'undefined') {
+                  let element: any = document.getElementById(
+                      content[currentBlockIndex - 1].name
+                    ),
+                    bodyRect = document.body.getBoundingClientRect(),
+                    elemRect = element.getBoundingClientRect(),
+                    offset = elemRect.top - bodyRect.top
+
+                  y.start({
+                    to: { y: offset + 50 },
+                    from: { y: window.pageYOffset },
+                  })
+                }
+              }}
+            />
+          )}
         </main>
-        <footer
+
+        {/* <footer
           css={css`
             margin-top: 80px;
             font-size: 1rem;
@@ -136,7 +198,7 @@ const Layout = ({
           >
             FOOTER MESSAGE
           </p>
-        </footer>
+        </footer> */}
       </div>
     </div>
   )

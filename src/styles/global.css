@@ -58,6 +58,10 @@ h1 {
 .show {
   opacity: 1;
 }
+
+.showVaag {
+  opacity: 0.1;
+}
 .hide {
   opacity: 0;
 }
