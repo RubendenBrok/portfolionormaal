@@ -9,7 +9,7 @@ import ColoredBgText from '../../components/coloredbgtext'
 
 import RubberBand from 'react-reveal/RubberBand'
 
-import content from '../content'
+import content, { colors } from '../content'
 
 export const LandingPage = () => {
   return (
@@ -18,6 +18,7 @@ export const LandingPage = () => {
       css={css`
         padding-top: 6%;
         font-size: 2rem;
+        min-height: 100vh;
       `}
     >
       <Fade duration={2000} delay={0} cascade>
@@ -42,7 +43,7 @@ export const LandingPage = () => {
             text="CREATIVE"
             fontSize="2.5rem"
             bgColor={content[0].accentColor1}
-            textColor="rgb(240,240,240)"
+            textColor={colors.white}
             delay={0}
           />
           <div className="introFlexItem">front-end developer</div>
@@ -64,7 +65,7 @@ export const LandingPage = () => {
             text="LOVES"
             fontSize="4rem"
             bgColor={content[0].accentColor2}
-            textColor="rgb(240,240,240)"
+            textColor={colors.white}
             delay={0}
           />
           <div className="introFlexItem">to create</div>
@@ -73,7 +74,7 @@ export const LandingPage = () => {
             text="PLAYFUL ONLINE EXPERIENCES"
             bgColor={content[0].accentColor2}
             fontSize="2.5rem"
-            textColor="rgb(240,240,240)"
+            textColor={colors.white}
             delay={0}
           />
         </div>

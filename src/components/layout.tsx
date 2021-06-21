@@ -41,17 +41,25 @@ const Layout = ({
   currentBlockIndex,
   y,
 }: layoutProps) => {
-  useEffect(() => {
-    console.log(currentBlockIndex)
-  })
-  return (
-    <div
-      css={css`
-        background-color: ${bgColor};
+  const initScrollAnimation = (amt: number) => {
+    if (typeof window !== 'undefined') {
+      const scrollOffset = window.innerHeight / 12
+      let element: any = document.getElementById(
+          content[currentBlockIndex + amt].name
+        ),
+        bodyRect = document.body.getBoundingClientRect(),
+        elemRect = element.getBoundingClientRect(),
+        offset = elemRect.top - bodyRect.top
 
-        color: ${textColor};
-      `}
-    >
+      y.start({
+        to: { y: offset - scrollOffset },
+        from: { y: window.pageYOffset },
+      })
+    }
+  }
+
+  return (
+    <div style={{ color: textColor, backgroundColor: bgColor }}>
       <Global styles={css``} />
       {/*
       <div
@@ -62,14 +70,8 @@ const Layout = ({
         <Header />
       </div>
       */}
-      <div
-        css={css`
-          margin: 0 auto;
-          width: 100%;
-          padding: 0;
-        `}
-      >
-        {/* <div
+
+      {/* <div
           className={`container`}
           css={css`
             position: fixed;
@@ -79,91 +81,61 @@ const Layout = ({
           `}
         ></div> */}
 
-        <main
-          css={css`
-            width: 80%;
-            margin: auto;
-            ${variables.mobile} {
-              width: 90%;
-            }
-          `}
-        >
-          {children}
+      <main
+        css={css`
+          width: 80%;
+          margin: auto;
+          ${variables.mobile} {
+            width: 90%;
+          }
+        `}
+      >
+        {children}
 
-          {currentBlockIndex < content.length - 1 && (
-            <BsChevronCompactDown
-              color={textColor}
-              css={css`
-                position: fixed;
-                transition: opacity 0.3s;
-                opacity: 0.3;
-                left: 50%;
-                bottom: 3%;
-                width: 100px;
-                height: 60px;
-                transform: translateX(-50%) scaleX(1.4);
-                &:hover {
-                  opacity: 0.8;
-                  cursor: pointer;
-                }
-              `}
-              onClick={() => {
-                console.log(currentBlockIndex)
-                if (typeof window !== 'undefined') {
-                  let element: any = document.getElementById(
-                      content[currentBlockIndex + 1].name
-                    ),
-                    bodyRect = document.body.getBoundingClientRect(),
-                    elemRect = element.getBoundingClientRect(),
-                    offset = elemRect.top - bodyRect.top
+        {currentBlockIndex < content.length - 1 && (
+          <BsChevronCompactDown
+            color={textColor}
+            css={css`
+              position: fixed;
+              transition: opacity 0.3s;
+              opacity: 0.3;
+              left: 50%;
+              bottom: 3%;
+              width: 100px;
+              height: 60px;
+              transform: translateX(-50%) scaleX(1.4);
+              &:hover {
+                opacity: 0.8;
+                cursor: pointer;
+              }
+            `}
+            onClick={() => initScrollAnimation(+1)}
+          />
+        )}
 
-                  y.start({
-                    to: { y: offset + 50 },
-                    from: { y: window.pageYOffset },
-                  })
-                }
-              }}
-            />
-          )}
+        {currentBlockIndex > 0 && (
+          <BsChevronCompactUp
+            color={textColor}
+            css={css`
+              position: fixed;
+              transition: opacity 0.3s;
+              opacity: 0.3;
+              left: 50%;
+              top: 3%;
+              width: 100px;
+              height: 60px;
+              transform: translateX(-50%) scaleX(1.4);
+              &:hover {
+                opacity: 0.8;
+                cursor: pointer;
+              }
+            `}
+            onClick={() => initScrollAnimation(-1)}
+          />
+        )}
+      </main>
 
-          {currentBlockIndex > 0 && (
-            <BsChevronCompactUp
-              color={textColor}
-              css={css`
-                position: fixed;
-                transition: opacity 0.3s;
-                opacity: 0.3;
-                left: 50%;
-                top: 3%;
-                width: 100px;
-                height: 60px;
-                transform: translateX(-50%) scaleX(1.4);
-                &:hover {
-                  opacity: 0.8;
-                  cursor: pointer;
-                }
-              `}
-              onClick={() => {
-                console.log(currentBlockIndex)
-                if (typeof window !== 'undefined') {
-                  let element: any = document.getElementById(
-                      content[currentBlockIndex - 1].name
-                    ),
-                    bodyRect = document.body.getBoundingClientRect(),
-                    elemRect = element.getBoundingClientRect(),
-                    offset = elemRect.top - bodyRect.top
-
-                  y.start({
-                    to: { y: offset + 50 },
-                    from: { y: window.pageYOffset },
-                  })
-                }
-              }}
-            />
-          )}
-        </main>
-
-        {/* <footer
+      {/* <footer
           css={css`
             margin-top: 80px;
             font-size: 1rem;
@@ -199,7 +171,6 @@ const Layout = ({
             FOOTER MESSAGE
           </p>
         </footer> */}
-      </div>
     </div>
   )
 }

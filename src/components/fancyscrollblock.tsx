@@ -3,29 +3,30 @@ import { css, jsx } from '@emotion/react'
 import React, { useEffect } from 'react'
 
 type scrollProps = {
-  opacity: number
-  scale: number
+  transitionFactor: number
   children: React.ReactNode
 }
 
+import { interpolateNumber } from 'd3-interpolate'
+
+const minScale = 0.3,
+  minOpacity = 0.2
+
 export const FancyScrollBlock = React.memo(function FancyScroll({
-  opacity,
-  scale,
+  transitionFactor,
   children,
 }: scrollProps) {
+  let opacity = interpolateNumber(minOpacity, 1)(transitionFactor)
+  let scale = interpolateNumber(minScale, 1)(transitionFactor)
   return (
     <div
       css={css`
         width: 100%;
-        height: 80%;
-        position: absolute;
-        left: 0px;
-        top: 50%;
+        position: relative;
       `}
       style={{
         opacity: opacity,
-        transform: `translate(${30 * (0 - (1 - scale))}%,-50%) scale(${scale})`,
-        //transform: 'translateY(-50%)',
+        transform: `translate(${30 * (0 - (1 - scale))}%,0) scale(${scale})`,
       }}
     >
       {children}

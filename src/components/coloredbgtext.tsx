@@ -10,6 +10,7 @@ type textProps = {
   animated: boolean
   delay?: number
   fontSize?: string
+  rounded?: boolean
 }
 export const ColoredBgText = ({
   bgColor,
@@ -18,6 +19,7 @@ export const ColoredBgText = ({
   delay,
   text,
   fontSize,
+  rounded,
 }: textProps) => {
   const [show, setShow] = useState(false)
 
@@ -29,21 +31,28 @@ export const ColoredBgText = ({
         },
         delay ? delay : 0
       )
+    } else {
+      setShow(true)
     }
   }, [])
 
   return (
     <h4
       css={css`
-        font-size: ${fontSize};
-        background-color: ${bgColor};
+        display: inline;
         padding: 0 10px;
-        color: ${textColor};
-        clip-path: ${!show
-          ? 'polygon(0 0, 0 0, 0 100%, 0 100%)'
-          : 'polygon(100% 0, 0 0, 0 100%, 100% 100%)'};
-        transition: clip-path 1s;
+        transition: ${animated ? 'clip-path 1s' : 'none'};
       `}
+      style={{
+        color: textColor,
+        fontSize: fontSize,
+        backgroundColor: bgColor,
+
+        clipPath: !show
+          ? 'polygon(0 0, 0 0, 0 100%, 0 100%)'
+          : 'polygon(100% 0, 0 0, 0 100%, 100% 100%)',
+        borderRadius: rounded ? '6px' : '0',
+      }}
     >
       {text}
     </h4>

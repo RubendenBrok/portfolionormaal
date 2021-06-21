@@ -19,12 +19,11 @@ export const Division = React.memo(function Division({
     <div
       id={hash}
       css={css`
-        height: 100vh;
         width: 100%;
         position: relative;
       `}
     >
-      {visible && children}
+      {children}
     </div>
   )
 })

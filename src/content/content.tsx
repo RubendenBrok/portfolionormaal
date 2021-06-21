@@ -1,5 +1,8 @@
 import LandingPage from './jsx/landingpage'
-import PassionProjects from './jsx/passionprojects'
+import PassionProjects, { Flow } from './jsx/passionprojects'
+import AboutMe from './jsx/aboutme'
+import Contact from './jsx/contact'
+
 import React from 'react'
 
 export type contentType = {
@@ -15,22 +18,10 @@ export type contentType = {
 }
 
 export const colors = {
-  black:
-    typeof window !== 'undefined'
-      ? getComputedStyle(document.documentElement).getPropertyValue('--black')
-      : 'rgb(40,40,40)',
-  white:
-    typeof window !== 'undefined'
-      ? getComputedStyle(document.documentElement).getPropertyValue('--white')
-      : 'rgb(240,240,240)',
-  red:
-    typeof window !== 'undefined'
-      ? getComputedStyle(document.documentElement).getPropertyValue('--red')
-      : 'rgb(255,100,100)',
-  blue:
-    typeof window !== 'undefined'
-      ? getComputedStyle(document.documentElement).getPropertyValue('--blue')
-      : 'rgb(0,0,255)',
+  black: '#3a3a3a',
+  white: 'rgb(240,240,240)',
+  red: 'rgb(214, 102, 102)',
+  blue: 'rgb(84, 98, 180)',
 }
 
 export const content: contentType[] = [
@@ -46,19 +37,19 @@ export const content: contentType[] = [
     name: 'Home',
   },
   {
-    content: <PassionProjects />,
-    bgColor: colors.blue,
+    content: <AboutMe />,
+    bgColor: colors.white,
     accentColor1: colors.red,
-    accentColor2: colors.black,
+    accentColor2: colors.blue,
     bgAngle: 39,
     clipArr: [70, 50, 50],
     clipOpacity: 1,
-    textColor: colors.white,
+    textColor: colors.black,
     name: 'AboutMe',
   },
   {
     content: <PassionProjects />,
-    bgColor: colors.black,
+    bgColor: colors.blue,
     accentColor1: colors.red,
     accentColor2: colors.blue,
     bgAngle: 39,
@@ -68,15 +59,15 @@ export const content: contentType[] = [
     name: 'PassionProjects',
   },
   {
-    content: <LandingPage />,
-    bgColor: colors.black,
-    accentColor1: colors.red,
+    content: <Contact />,
+    bgColor: colors.red,
+    accentColor1: colors.black,
     accentColor2: colors.blue,
     bgAngle: 256,
     clipArr: [55, 100, 150],
     clipOpacity: 1,
     textColor: colors.white,
-    name: 'Flow',
+    name: 'Contact',
   },
 ]
 
