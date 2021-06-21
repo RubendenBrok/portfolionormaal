@@ -2,6 +2,7 @@ import LandingPage from './jsx/landingpage'
 import PassionProjects, { Flow } from './jsx/passionprojects'
 import AboutMe from './jsx/aboutme'
 import Contact from './jsx/contact'
+import ProfessionalWork from './jsx/professionalwork'
 
 import React from 'react'
 
@@ -59,7 +60,7 @@ export const content: contentType[] = [
     name: 'PassionProjects',
   },
   {
-    content: <Contact />,
+    content: <ProfessionalWork />,
     bgColor: colors.red,
     accentColor1: colors.black,
     accentColor2: colors.blue,
@@ -67,6 +68,17 @@ export const content: contentType[] = [
     clipArr: [55, 100, 150],
     clipOpacity: 1,
     textColor: colors.white,
+    name: 'ProfessionalWork',
+  },
+  {
+    content: <Contact />,
+    bgColor: colors.white,
+    accentColor1: colors.black,
+    accentColor2: colors.blue,
+    bgAngle: 256,
+    clipArr: [55, 100, 150],
+    clipOpacity: 1,
+    textColor: colors.black,
     name: 'Contact',
   },
 ]

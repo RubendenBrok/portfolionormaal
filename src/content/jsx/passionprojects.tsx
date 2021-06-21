@@ -24,7 +24,7 @@ export const PassionProjects = () => {
         css={css`
           max-width: 50%;
           margin-top: 4rem;
-          margin-bottom: -4rem;
+          margin-bottom: 4rem;
           font-size: 1.4rem;
         `}
       >
@@ -58,11 +58,11 @@ export const Flow = () => {
           `}
         >
           Apart from being a developer, I am also a musician. Having always been
-          interested in the role of randomness in art (and music especially), I
-          wanted to build a website that could generate random music. This idea
-          turned into Flow, a website you can play with to create your own
-          relaxing soundtrack. You can also let it evolve on its own, to
-          generate a constantly changing piece of music.
+          interested in the role of randomness in art and music, I wanted to
+          build a website that could generate random music. This idea turned
+          into Flow, a website you can play with to create your own relaxing
+          soundtrack. You can also let it evolve on its own, to generate a
+          constantly changing piece of music.
         </p>
         <h3
           css={css`
@@ -135,7 +135,14 @@ export const Seacosystem = () => {
             margin-top: 5rem;
           `}
         >
-          Goals for this project
+          <ColoredBgText
+            text="GOALS FOR THIS PROJECT:"
+            bgColor={colors.black}
+            animated
+            textColor={content[2].textColor}
+            fontSize="2.5rem"
+            rounded
+          />
         </h3>
         <ul
           css={css`
@@ -205,6 +212,7 @@ function Project({
         flex-direction: ${left ? 'row-reverse' : 'row'};
         justify-content: space-between;
         margin-top: 0rem;
+        margin-bottom: 8rem;
         position: relative;
         padding: 30px;
         border-radius: 0px;
@@ -223,8 +231,9 @@ function Project({
           position: absolute;
           top: 2rem;
           z-index: 1;
+          left: 50%;
+          transform: translateX(-50%);
         `}
-        style={left ? { left: 0 } : { right: 0 }}
       >
         {' '}
         <ColoredBgText
@@ -233,6 +242,7 @@ function Project({
           animated
           textColor={titleTextColor}
           fontSize="5rem"
+          rounded
         />
       </div>
       <div
@@ -255,22 +265,15 @@ function Project({
           css={css`
             display: flex;
             align-items: center;
-            margin-bottom: -3rem;
+            margin-bottom: -1rem;
             justify-content: ${left ? 'flex-end' : 'flex-start'};
           `}
         >
-          <ColoredBgText
-            animated={false}
-            text="Techniques used:"
-            rounded
-            bgColor={titleAccentColor}
-            textColor={titleTextColor}
-            fontSize="1.7rem"
-          />
+          <h2>Techniques used:</h2>
           <p
             css={css`
               font-weight: bold;
-              font-size: 1.2rem;
+              font-size: 1rem;
               margin-left: 0.5rem;
             `}
           >
@@ -284,7 +287,13 @@ function Project({
             text-align: ${left ? 'right' : 'left'};
           `}
         >
-          <h2>Visit Website</h2>
+          <h2
+            css={css`
+              font-size: 2rem;
+            `}
+          >
+            Visit Website
+          </h2>
         </a>
       </div>
       <div
