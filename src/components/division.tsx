@@ -7,13 +7,11 @@ import { blockSize } from '../pages/index'
 type divisionProps = {
   children: React.ReactNode
   hash: string
-  visible: boolean
 }
 
 export const Division = React.memo(function Division({
   children,
   hash,
-  visible,
 }: divisionProps) {
   return (
     <div

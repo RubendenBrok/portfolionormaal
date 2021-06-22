@@ -3,8 +3,6 @@ import { css, jsx } from '@emotion/react'
 
 import React, { useState } from 'react'
 
-import useResizeAware from 'react-resize-aware'
-
 import { animated, useSpring } from 'react-spring'
 
 type listProps = {

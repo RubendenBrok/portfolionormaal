@@ -1,5 +1,5 @@
 import LandingPage from './jsx/landingpage'
-import PassionProjects, { Flow } from './jsx/passionprojects'
+import PassionProjects from './jsx/passionprojects'
 import AboutMe from './jsx/aboutme'
 import Contact from './jsx/contact'
 import ProfessionalWork from './jsx/professionalwork'
@@ -20,9 +20,9 @@ export type contentType = {
 
 export const colors = {
   black: '#3a3a3a',
-  white: 'rgb(240,240,240)',
-  red: 'rgb(214, 102, 102)',
-  blue: 'rgb(84, 98, 180)',
+  white: '#f0f0f0',
+  red: '#d66666',
+  blue: '#5462b4',
 }
 
 export const content: contentType[] = [

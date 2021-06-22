@@ -84,6 +84,7 @@ const Layout = ({
       <main
         css={css`
           width: 80%;
+          min-width: 980px;
           margin: auto;
           ${variables.mobile} {
             width: 90%;

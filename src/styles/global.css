@@ -73,6 +73,33 @@ h1 {
   opacity: 0;
 }
 
+label {
+  display: block;
+}
+
+input,
+textarea {
+  background-color: none;
+  width: 100%;
+  font: inherit;
+  padding: 5px;
+  max-width: 800px;
+}
+
+#Contact h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0rem;
+}
+
+input {
+  max-width: 500px;
+}
+
+.formDiv {
+  width: 100%;
+}
+
 .react-icons {
   vertical-align: middle;
 }

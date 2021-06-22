@@ -110,13 +110,13 @@ export const AboutMe = () => {
           `}
         >
           <ColoredBgText
-            bgColor={content[1].bgColor}
+            bgColor="rgba(255,255,255,0)"
             textColor={content[1].accentColor2}
             text="Strong Points:"
             animated={true}
             fontSize="4rem"
           />
-          <Fade duration={2000} delay={1000}>
+          <Fade duration={2000} delay={700}>
             <div
               css={css`
                 color: ${content[1].bgColor};

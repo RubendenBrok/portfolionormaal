@@ -47,41 +47,54 @@ export const Flow = () => {
       video={flow}
       titleAccentColor={colors.black}
       titleTextColor={colors.white}
-      techniques="React, Typescript, PixiJS, Logic"
+      techniques="React, Typescript, PixiJS, Logic Pro"
       link="https://flowmusicgenerator.netlify.app/"
     >
-      <div css={css``}>
+      <div
+        css={css`
+          margin-bottom: 5rem;
+        `}
+      >
         <p
           css={css`
             margin-top: 10rem;
-            font-size: 1.2rem;
+            font-size: 1rem;
           `}
         >
-          Apart from being a developer, I am also a musician. Having always been
+          Besides being a developer, I am also a musician. Having always been
           interested in the role of randomness in art and music, I wanted to
           build a website that could generate random music. This idea turned
           into Flow, a website you can play with to create your own relaxing
           soundtrack. You can also let it evolve on its own, to generate a
           constantly changing piece of music.
         </p>
-        <h3
+        <div
           css={css`
-            font-size: 3rem;
             margin-top: 5rem;
+            text-align: left;
           `}
         >
-          Goals for this project
-        </h3>
+          <ColoredBgText
+            text="GOALS FOR THIS PROJECT:"
+            bgColor={colors.black}
+            animated
+            textColor={content[2].textColor}
+            fontSize="2.5rem"
+            rounded
+          />
+        </div>
         <ul
           css={css`
             height: 12rem;
+            text-align: left;
+
             & b {
               font-size: 1.3rem;
             }
           `}
         >
           <ExpandingListItem
-            title="Build a project in React"
+            title="Get comfortable using React"
             text="Flow was the first thing I built in React, and partially started as
             an exploration of the framework."
           />
@@ -112,15 +125,14 @@ export const Seacosystem = () => {
       video={seacosystem}
       titleAccentColor={colors.black}
       titleTextColor={colors.white}
-      techniques="React, Typescript, PixiJS, Logic"
+      techniques="React, Typescript, PixiJS, Logic Pro"
       link="https://seacosystem.netlify.app/"
-      left
     >
       <div css={css``}>
         <p
           css={css`
             margin-top: 10rem;
-            font-size: 1.2rem;
+            font-size: 1rem;
           `}
         >
           I saw some video's about simulating natural selection and evolution
@@ -129,10 +141,10 @@ export const Seacosystem = () => {
           small sandbox simulation game in which you can let different species
           of fish evolve as you try to balance their ecosystem.
         </p>
-        <h3
+        <div
           css={css`
-            font-size: 3rem;
             margin-top: 5rem;
+            text-align: left;
           `}
         >
           <ColoredBgText
@@ -143,10 +155,11 @@ export const Seacosystem = () => {
             fontSize="2.5rem"
             rounded
           />
-        </h3>
+        </div>
         <ul
           css={css`
             height: 20rem;
+            text-align: left;
             & b {
               font-size: 1.3rem;
             }
@@ -231,8 +244,7 @@ function Project({
           position: absolute;
           top: 2rem;
           z-index: 1;
-          left: 50%;
-          transform: translateX(-50%);
+          left: 55%;
         `}
       >
         {' '}
