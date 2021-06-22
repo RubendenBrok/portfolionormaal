@@ -4,107 +4,140 @@ import { HiMenu, HiMenuAlt2 } from 'react-icons/hi'
 import { Link } from 'gatsby'
 
 import { GrClose } from 'react-icons/gr'
+import { BsChevronDoubleRight } from 'react-icons/bs'
 import { globalCss, variables, colors } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
 import React, { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
-export const MobileMenu = () => {
+type MobileMenu = any
+
+export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
   const [open, setOpen] = useState(false)
 
   const styles = useSpring({
-    height: open ? '400px' : '0px',
-    borderColor: open ? 'var(--textColor)' : 'var(--bgColor)',
-  })
-
-  const navStyles = useSpring({
-    height: open ? '400px' : '0px',
+    right: open ? '30px' : '-460px',
   })
 
   return (
-    <div
-      css={css`
-        ${variables.desktop} {
-          display: none;
-        }
-      `}
-    >
+    <div className="container" css={css``}>
       <animated.div
-        style={styles}
+        style={{
+          ...styles,
+          backgroundColor: bgColor,
+          color: textColor,
+          borderLeft: `3px solid ${textColor}`,
+          borderRight: `3px solid ${textColor}`,
+          boxShadow: `-10px 0px ${bgColor}, 10px 0px ${bgColor}`,
+        }}
         css={css`
           position: fixed;
-          top: 10px;
-          right: 10px;
-          background-color: 'var(--bgColor)';
-          width: calc(100vw - 20px);
-          border-radius: 20px;
-          border-width: 1px;
-          border-style: solid;
+          top: 0px;
+          min-width: 300px;
+          height: 100%;
+
           z-index: 5;
         `}
       >
-        {open && (
-          <animated.nav
-            style={navStyles}
-            css={css`
-              display: flex;
+        <nav
+          css={css`
+            display: flex;
 
-              flex-direction: column;
-              justify-content: space-around;
-            `}
-          >
-            <Link to="/" className="navLinkMobile">
-              Home
-            </Link>
-            <Link to="/portfolio" className="navLinkMobile">
-              Portfolio
-            </Link>
-            <Link to="/poezie" className="navLinkMobile">
-              Poëzie
-            </Link>
-            <Link to="/about" className="navLinkMobile">
-              Over mij
-            </Link>
-            <Link to="" className="navLinkMobile">
-              Shop
-            </Link>
-          </animated.nav>
-        )}
+            flex-direction: column;
+            justify-content: space-around;
+            margin-top: 4rem; ;
+          `}
+        >
+          <HoverLink
+            link="#Home"
+            text="Home"
+            bgColor={bgColor}
+            textColor={textColor}
+          />
+          <HoverLink
+            link="#AboutMe"
+            text="About Me"
+            bgColor={bgColor}
+            textColor={textColor}
+          />
+          <HoverLink
+            link="#PassionProjects"
+            text="Passion Projects"
+            bgColor={bgColor}
+            textColor={textColor}
+          />
+          <HoverLink
+            link="#ProfessionalWork"
+            text="Professional Work"
+            bgColor={bgColor}
+            textColor={textColor}
+          />
+          <HoverLink
+            link="#Contact"
+            text="Contact"
+            bgColor={bgColor}
+            textColor={textColor}
+          />
+        </nav>
+        <BsChevronDoubleRight
+          color={textColor}
+          css={css`
+            width: 55px;
+            height: 55px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+          `}
+          role="button"
+          onClick={() => {
+            setOpen(!open)
+          }}
+        />
       </animated.div>
-      <div
+      <HiMenuAlt2
+        color={bgColor}
         css={css`
+          width: 55px;
+          height: 55px;
           position: fixed;
           top: 20px;
           right: 20px;
-          z-index: 10;
-
-          background-color: 'var(--bgColor)';
-
-          &:hover {
-            cursor: pointer;
-          }
         `}
         role="button"
-        onClick={() => setOpen(!open)}
-      >
-        {!open ? (
-          <HiMenuAlt2
-            color="var(--textColor)"
-            css={css`
-              width: 45px;
-              height: 45px;
-            `}
-          />
-        ) : (
-          <GrClose
-            color="var(--textColor)"
-            css={css`
-              width: 45px;
-              height: 45px;
-            `}
-          />
-        )}
-      </div>
+        onClick={() => {
+          setOpen(!open)
+        }}
+      />
     </div>
   )
 }
+
+const HoverLink = ({ link, text, textColor, bgColor }: any) => {
+  const [hovered, setHovered] = useState(false)
+
+  const styles = useSpring({
+    width: hovered ? 'calc(100% + 4rem)' : 'calc(0% + 0rem)',
+    config: { tension: 300, clamp: true },
+  })
+
+  const color = useSpring({ color: hovered ? bgColor : textColor })
+
+  return (
+    <animated.a
+      style={color}
+      href={link}
+      className="navLinkMobile"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <animated.div
+        className="hoverFill"
+        style={{ ...styles, backgroundColor: textColor }}
+      />
+      <div>{text}</div>
+      <div className="fillLine" style={{ backgroundColor: textColor }} />
+    </animated.a>
+  )
+}
+
+export default MobileMenu

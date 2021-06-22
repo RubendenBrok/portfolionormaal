@@ -58,8 +58,28 @@ h1 {
   font-size: 8rem;
 }
 
-.navLink {
-  margin-bottom: 50px;
+.navLinkMobile {
+  margin: 1.5rem 2rem;
+  font-family: 'Staatliches';
+  font-size: 2.5rem;
+  text-decoration: none;
+  text-align: right;
+  display: block;
+  position: relative;
+}
+
+.fillLine {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+}
+
+.hoverFill {
+  position: absolute;
+  height: 140%;
+  top: -20%;
+  right: -2rem;
+  z-index: -1;
 }
 
 .show {

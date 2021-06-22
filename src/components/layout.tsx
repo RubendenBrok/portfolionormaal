@@ -13,6 +13,8 @@ import content from '../content/content'
 import { variables } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
 
+import MobileMenu from './mobilemenu'
+
 import { FaInstagram } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
 
@@ -59,7 +61,12 @@ const Layout = ({
   }
 
   return (
-    <div style={{ color: textColor, backgroundColor: bgColor }}>
+    <div
+      style={{
+        color: textColor,
+        backgroundColor: bgColor,
+      }}
+    >
       <Global styles={css``} />
       {/*
       <div
@@ -172,6 +179,7 @@ const Layout = ({
             FOOTER MESSAGE
           </p>
         </footer> */}
+      <MobileMenu bgColor={textColor} textColor={bgColor} />
     </div>
   )
 }
