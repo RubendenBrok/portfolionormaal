@@ -44,13 +44,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Marjan de Ridder - Beeldende Kunst en Poëzie`,
-        short_name: `Marjan de Ridder`,
+        name: `Ruben den Brok - Creative Webdesign and Development`,
+        short_name: `Ruben den Brok`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: "/src/images/logo/blender.png"
+        icon: "src/images/icon.png"
       },
     },
     'gatsby-plugin-react-svg',

@@ -33,6 +33,7 @@ export const AboutMe = () => {
       <div
         css={css`
           display: flex;
+          flex-wrap: wrap;
           width: 100%;
           justify-content: space-between;
         `}
@@ -40,6 +41,9 @@ export const AboutMe = () => {
         <div
           css={css`
             width: 50%;
+            ${variables.mobile} {
+              width: 100%;
+            }
           `}
         >
           <p>
@@ -73,7 +77,9 @@ export const AboutMe = () => {
           />
           <div
             css={css`
-              width: 100%;
+              ${variables.mobile} {
+                height: 1rem;
+              }
             `}
           ></div>
           <LogoText
@@ -107,6 +113,10 @@ export const AboutMe = () => {
         <div
           css={css`
             width: 40%;
+            ${variables.mobile} {
+              width: 100%;
+              margin-top: 2rem;
+            }
           `}
         >
           <ColoredBgText
@@ -174,6 +184,9 @@ function LogoText({ text, path, bgColor }: logoProps) {
         margin: 30px 0;
         width: 21%;
         height: 4rem;
+        ${variables.mobile} {
+          margin: 5px 0;
+        }
       `}
       style={springProp}
       onMouseEnter={() => {
@@ -190,6 +203,10 @@ function LogoText({ text, path, bgColor }: logoProps) {
           height: 4rem;
           display: block;
           margin: auto;
+          ${variables.mobile} {
+            width: 3rem;
+            height: 3rem;
+          }
         `}
       ></img>
       <a

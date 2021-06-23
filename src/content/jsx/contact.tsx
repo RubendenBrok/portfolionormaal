@@ -39,6 +39,7 @@ export const Contact = () => {
       <div
         css={css`
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           width: 100%;
         `}
@@ -46,6 +47,9 @@ export const Contact = () => {
         <div
           css={css`
             width: 45%;
+            ${variables.mobile} {
+              width: 100%;
+            }
           `}
         >
           <p
@@ -70,6 +74,11 @@ export const Contact = () => {
         <div
           css={css`
             width: 50%;
+            ${variables.mobile} {
+              width: 100%;
+              margin-top: 3rem;
+              padding-right: 1rem;
+            }
           `}
         >
           <h4>CONTACT ME DIRECTLY:</h4>

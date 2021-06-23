@@ -16,7 +16,7 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
   const [open, setOpen] = useState(false)
 
   const styles = useSpring({
-    right: open ? '30px' : '-460px',
+    right: open ? '20px' : '-460px',
   })
 
   return (
@@ -35,8 +35,11 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
           top: 0px;
           min-width: 300px;
           height: 100%;
-
           z-index: 5;
+          ${variables.mobile} {
+            width: calc(100% - 46px);
+            min-width: 0;
+          }
         `}
       >
         <nav
@@ -53,30 +56,35 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
             text="Home"
             bgColor={bgColor}
             textColor={textColor}
+            setOpen={setOpen}
           />
           <HoverLink
             link="#AboutMe"
             text="About Me"
             bgColor={bgColor}
             textColor={textColor}
+            setOpen={setOpen}
           />
           <HoverLink
             link="#PassionProjects"
             text="Passion Projects"
             bgColor={bgColor}
             textColor={textColor}
+            setOpen={setOpen}
           />
           <HoverLink
             link="#ProfessionalWork"
             text="Professional Work"
             bgColor={bgColor}
             textColor={textColor}
+            setOpen={setOpen}
           />
           <HoverLink
             link="#Contact"
             text="Contact"
             bgColor={bgColor}
             textColor={textColor}
+            setOpen={setOpen}
           />
         </nav>
         <BsChevronDoubleRight
@@ -112,7 +120,7 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
   )
 }
 
-const HoverLink = ({ link, text, textColor, bgColor }: any) => {
+const HoverLink = ({ link, text, textColor, bgColor, setOpen }: any) => {
   const [hovered, setHovered] = useState(false)
 
   const styles = useSpring({
@@ -129,6 +137,7 @@ const HoverLink = ({ link, text, textColor, bgColor }: any) => {
       className="navLinkMobile"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => setOpen(false)}
     >
       <animated.div
         className="hoverFill"

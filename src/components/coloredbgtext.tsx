@@ -3,6 +3,8 @@
 import { css, jsx } from '@emotion/react'
 import { useState, useEffect } from 'react'
 
+import { variables } from '../styles/global'
+
 type textProps = {
   bgColor: string
   textColor: string
@@ -42,10 +44,14 @@ export const ColoredBgText = ({
         display: inline;
         padding: 0 10px;
         transition: ${animated ? 'clip-path 1s' : 'none'};
+        font-size: ${fontSize};
+        ${variables.mobile} {
+          font-size: calc(${fontSize} / 1.7);
+        }
       `}
       style={{
         color: textColor,
-        fontSize: fontSize,
+
         backgroundColor: bgColor,
 
         clipPath: !show

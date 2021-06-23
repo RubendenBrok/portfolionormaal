@@ -8,6 +8,8 @@ import content, { colors } from '../content'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import { variables } from '../../styles/global'
+
 import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
 
@@ -49,6 +51,9 @@ export const ProfessionalWork = () => {
               css={css`
                 margin-bottom: 0rem;
                 font-size: 2.5rem;
+                ${variables.mobile} {
+                  font-size: 1.5rem;
+                }
               `}
             >
               Website:
@@ -65,6 +70,9 @@ export const ProfessionalWork = () => {
               css={css`
                 margin-bottom: 0rem;
                 font-size: 2.5rem;
+                ${variables.mobile} {
+                  font-size: 1.5rem;
+                }
               `}
             >
               Design / 3D-model:
@@ -170,6 +178,7 @@ const WorkItem = ({ img, myRole, title, title2, children }: WorkItem) => {
         css={css`
           width: 100%;
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           margin-top: 3rem;
         `}
@@ -177,6 +186,9 @@ const WorkItem = ({ img, myRole, title, title2, children }: WorkItem) => {
         <div
           css={css`
             width: 45%;
+            ${variables.mobile} {
+              width: 100%;
+            }
           `}
         >
           <ColoredBgText
@@ -199,6 +211,10 @@ const WorkItem = ({ img, myRole, title, title2, children }: WorkItem) => {
         <div
           css={css`
             width: 45%;
+            ${variables.mobile} {
+              width: 100%;
+              margin-top: 3rem;
+            }
           `}
         >
           <ColoredBgText

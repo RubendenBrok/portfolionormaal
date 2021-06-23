@@ -95,6 +95,7 @@ const Layout = ({
           margin: auto;
           ${variables.mobile} {
             width: 90%;
+            min-width: 0;
           }
         `}
       >

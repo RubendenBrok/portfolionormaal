@@ -6,6 +6,8 @@ import Zoom from 'react-reveal/Zoom'
 import ColoredBgText from '../../components/coloredbgtext'
 import content, { colors } from '../content'
 
+import { variables } from '../../styles/global'
+
 import flow from '../../video/flowvideo.mp4'
 import seacosystem from '../../video/seacosystemvideo.mp4'
 
@@ -17,7 +19,7 @@ import ExpandingListItem from '../../components/expandinglistitem'
 export const PassionProjects = () => {
   return (
     <div className="container">
-      <Zoom cascade duration={2000}>
+      <Zoom duration={2000}>
         <h1>Passion Projects</h1>
       </Zoom>
       <p
@@ -26,6 +28,9 @@ export const PassionProjects = () => {
           margin-top: 4rem;
           margin-bottom: 4rem;
           font-size: 1.4rem;
+          ${variables.mobile} {
+            max-width: 100%;
+          }
         `}
       >
         Sometimes a certain topic or theme inspires me, and I start
@@ -57,7 +62,7 @@ export const Flow = () => {
       >
         <p
           css={css`
-            margin-top: 10rem;
+            margin-top: 3rem;
             font-size: 1rem;
           `}
         >
@@ -72,6 +77,9 @@ export const Flow = () => {
           css={css`
             margin-top: 5rem;
             text-align: left;
+            ${variables.mobile} {
+              margin-top: 2rem;
+            }
           `}
         >
           <ColoredBgText
@@ -90,6 +98,9 @@ export const Flow = () => {
 
             & b {
               font-size: 1.3rem;
+              ${variables.mobile} {
+                font-size: 1.1rem;
+              }
             }
           `}
         >
@@ -131,7 +142,7 @@ export const Seacosystem = () => {
       <div css={css``}>
         <p
           css={css`
-            margin-top: 10rem;
+            margin-top: 3rem;
             font-size: 1rem;
           `}
         >
@@ -145,6 +156,9 @@ export const Seacosystem = () => {
           css={css`
             margin-top: 5rem;
             text-align: left;
+            ${variables.mobile} {
+              margin-top: 2rem;
+            }
           `}
         >
           <ColoredBgText
@@ -162,6 +176,9 @@ export const Seacosystem = () => {
             text-align: left;
             & b {
               font-size: 1.3rem;
+              ${variables.mobile} {
+                font-size: 1.1rem;
+              }
             }
           `}
         >
@@ -222,6 +239,7 @@ function Project({
         width: 100%;
         min-height: 200px;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: ${left ? 'row-reverse' : 'row'};
         justify-content: space-between;
         margin-top: 0rem;
@@ -229,6 +247,10 @@ function Project({
         position: relative;
         padding: 30px;
         border-radius: 0px;
+        ${variables.mobile} {
+          padding: 0;
+          flex-direction: column;
+        }
       `}
       onMouseEnter={() => {
         setHover(true)
@@ -241,13 +263,14 @@ function Project({
     >
       <div
         css={css`
-          position: absolute;
-          top: 2rem;
+          width: 100%;
           z-index: 1;
-          left: 55%;
+          margin-left: 55%;
+          ${variables.mobile} {
+            margin-left: 0;
+          }
         `}
       >
-        {' '}
         <ColoredBgText
           text={title}
           bgColor={titleAccentColor}
@@ -261,6 +284,9 @@ function Project({
         css={css`
           width: 50%;
           position: relative;
+          ${variables.mobile} {
+            width: 100%;
+          }
         `}
       >
         <video
@@ -270,7 +296,10 @@ function Project({
           css={css`
             max-width: 100%;
             max-height: 100%;
-            margin-top: 10rem;
+            margin-top: 3rem;
+            ${variables.mobile} {
+              margin-top: 1.5rem;
+            }
           `}
         />
         <div
@@ -279,14 +308,26 @@ function Project({
             align-items: center;
             margin-bottom: -1rem;
             justify-content: ${left ? 'flex-end' : 'flex-start'};
+            ${variables.mobile} {
+              align-items: flex-start;
+            }
           `}
         >
-          <h2>Techniques used:</h2>
+          <h2
+            css={css`
+              min-width: 150px;
+            `}
+          >
+            Techniques used:
+          </h2>
           <p
             css={css`
               font-weight: bold;
               font-size: 1rem;
               margin-left: 0.5rem;
+              ${variables.mobile} {
+                text-align: right;
+              }
             `}
           >
             {techniques}
@@ -302,6 +343,10 @@ function Project({
           <h2
             css={css`
               font-size: 2rem;
+              ${variables.mobile} {
+                font-size: 1.3rem;
+                display: none;
+              }
             `}
           >
             Visit Website
@@ -312,11 +357,32 @@ function Project({
         css={css`
           width: 45%;
           position: relative;
-
           display: flex;
+          flex-wrap: wrap;
           z-index: 0;
+          ${variables.mobile} {
+            width: 100%;
+            margin-top: -2rem;
+          }
         `}
       >
+        <div
+          css={css`
+            text-align: left;
+            width: 100%;
+            margin-top: 4rem;
+            margin-bottom: -2.5rem;
+          `}
+        >
+          <ColoredBgText
+            text="ABOUT:"
+            bgColor={colors.black}
+            animated
+            textColor={content[2].textColor}
+            fontSize="3.5rem"
+            rounded
+          />
+        </div>
         {children}
       </div>
     </div>
