@@ -95,6 +95,9 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
             position: absolute;
             top: 20px;
             left: 20px;
+            &:hover {
+              cursor: pointer;
+            }
           `}
           role="button"
           onClick={() => {
@@ -110,6 +113,9 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
           position: fixed;
           top: 20px;
           right: 20px;
+          &:hover {
+            cursor: pointer;
+          }
         `}
         role="button"
         onClick={() => {

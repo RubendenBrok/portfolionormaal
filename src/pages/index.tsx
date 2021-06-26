@@ -7,7 +7,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
-import { globalCss, variables, colors } from '../styles/global'
+import { variables } from '../styles/global'
 
 import { disableScroll, enableScroll } from '../util/preventscroll.js'
 
@@ -22,7 +22,7 @@ import {
 import FancyScrollBlock from '../components/fancyscrollblock'
 import Division from '../components/division'
 
-import content, { contentType } from '../content/content'
+import content, { contentType, colors } from '../content/content'
 import '../styles/global.css'
 import { config } from 'react-transition-group'
 
@@ -44,7 +44,7 @@ type pageStyleProps = {
 }
 
 const transitionSize =
-    typeof window !== 'undefined' ? window.innerHeight / 1.5 : 500,
+    typeof window !== 'undefined' ? window.innerHeight / 1.4 : 500,
   scrollOffset = 0
 
 const initPageStyleProps = {
@@ -63,6 +63,7 @@ export const blockSize =
 
 const IndexPage = () => {
   const elements: any = []
+  const elementHeights: any = []
 
   let h = typeof window !== 'undefined' ? window.innerHeight : 800
 
@@ -70,27 +71,6 @@ const IndexPage = () => {
 
   const [pageStyleProps, setPageStyleProps] =
     useState<pageStyleProps>(initPageStyleProps)
-
-  const { y } = useSpring({
-    from: { y: typeof window !== 'undefined' ? window.pageYOffset : 0 },
-    config: { mass: 10, tension: 250, precision: 2, friction: 90 },
-    onChange: () => {
-      if (typeof window !== 'undefined') {
-        window.scrollTo(0, y.get())
-      }
-    },
-    onStart: () => {
-      if (typeof window !== 'undefined') {
-        disableScroll()
-      }
-    },
-    onRest: () => {
-      if (typeof window !== 'undefined') {
-        enableScroll()
-      }
-      handleScroll()
-    },
-  })
 
   const handleScroll = () => {
     let newTransitionPropArray = [...transitionPropArray]
@@ -158,19 +138,24 @@ const IndexPage = () => {
   useEffect(() => {
     content.forEach((element: contentType, index: number) => {
       elements.push(document.getElementById(element.name))
+      elementHeights.push(elements[index].clientHeight)
     }, [])
 
     handleScroll()
-    y.stop()
-    window.addEventListener('scroll', handleScroll)
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll)
+      // window.addEventListener('load', () => console.log('load'))
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
+      //  window.removeEventListener('load', pageLoad)
     }
   }, [])
 
   return (
-    <Layout {...pageStyleProps} y={y}>
+    <Layout {...pageStyleProps}>
       <SEO title="Home" />
 
       {content.map((block: contentType, index: number) => {

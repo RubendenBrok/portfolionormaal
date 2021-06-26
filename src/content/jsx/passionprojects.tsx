@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Zoom from 'react-reveal/Zoom'
 import ColoredBgText from '../../components/coloredbgtext'
 import content, { colors } from '../content'
+import Fade from 'react-reveal/Fade'
 
 import { variables } from '../../styles/global'
 
@@ -14,31 +15,33 @@ import seacosystem from '../../video/seacosystemvideo.mp4'
 import flowScreen from '../../images/flowscreen.png'
 import seacosystemScreen from '../../images/seacosystemcreen.png'
 
-import ExpandingListItem from '../../components/expandinglistitem'
+import ExpandingListItem from '../../components/hovertextlist'
 
 export const PassionProjects = () => {
   return (
     <div className="container">
-      <Zoom duration={2000}>
+      <Zoom cascade duration={2000}>
         <h1>Passion Projects</h1>
       </Zoom>
-      <p
-        css={css`
-          max-width: 50%;
-          margin-top: 4rem;
-          margin-bottom: 4rem;
-          font-size: 1.4rem;
-          ${variables.mobile} {
-            max-width: 100%;
-          }
-        `}
-      >
-        Sometimes a certain topic or theme inspires me, and I start
-        experimenting with it. I've always found this{' '}
-        <i>learning through play</i> one of the best ways to develop myself, and
-        besides that its also just a lot of fun. Here you'll find some of those
-        projects.
-      </p>
+      <Fade left distance="-40%">
+        <p
+          css={css`
+            max-width: 50%;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            font-size: 1.4rem;
+            ${variables.mobile} {
+              max-width: 100%;
+            }
+          `}
+        >
+          Sometimes a certain topic or theme inspires me, and I start
+          experimenting with it. I've always found this{' '}
+          <i>learning through play</i> one of the best ways to develop myself,
+          and besides that its also just a lot of fun. Here you'll find some of
+          those projects.
+        </p>
+      </Fade>
       <Flow />
       <Seacosystem />
     </div>
@@ -50,7 +53,7 @@ export const Flow = () => {
     <Project
       title="FLOW"
       video={flow}
-      titleAccentColor={colors.black}
+      titleAccentColor={content[2].accentColor1}
       titleTextColor={colors.white}
       techniques="React, Typescript, PixiJS, Logic Pro"
       link="https://flowmusicgenerator.netlify.app/"
@@ -84,7 +87,7 @@ export const Flow = () => {
         >
           <ColoredBgText
             text="GOALS FOR THIS PROJECT:"
-            bgColor={colors.black}
+            bgColor={content[2].accentColor1}
             animated
             textColor={content[2].textColor}
             fontSize="2.5rem"
@@ -108,12 +111,16 @@ export const Flow = () => {
             title="Get comfortable using React"
             text="Flow was the first thing I built in React, and partially started as
             an exploration of the framework."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
           <ExpandingListItem
             title="Clear visual UI"
             text="I wanted to create a minimalistic user interface. The main
             target was to make the relation between the users input and the
             changes in music as clear as possible."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
           <ExpandingListItem
             title="Random generation of music that still sounds cohesive and musical"
@@ -122,6 +129,8 @@ export const Flow = () => {
             that samples will stay the same when they can (which gives a more
             musical sound) but will always fit together with the current
             harmony."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
         </ul>
       </div>
@@ -134,7 +143,7 @@ export const Seacosystem = () => {
     <Project
       title="SEACOSYSTEM"
       video={seacosystem}
-      titleAccentColor={colors.black}
+      titleAccentColor={content[2].accentColor2}
       titleTextColor={colors.white}
       techniques="React, Typescript, PixiJS, Logic Pro"
       link="https://seacosystem.netlify.app/"
@@ -163,7 +172,7 @@ export const Seacosystem = () => {
         >
           <ColoredBgText
             text="GOALS FOR THIS PROJECT:"
-            bgColor={colors.black}
+            bgColor={content[2].accentColor2}
             animated
             textColor={content[2].textColor}
             fontSize="2.5rem"
@@ -188,6 +197,8 @@ export const Seacosystem = () => {
             text="This was the first challenge of the project. Each fish should
             constantly reassess its surroundings and inner state to decide on
             its next actions."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
           <ExpandingListItem
             title="Have the agents in the simulation 'evolve'."
@@ -195,6 +206,8 @@ export const Seacosystem = () => {
             also randomly evolves. This makes a basic form of natural selection
             possible (over time the fish will get quicker, if there is a
             scarcity of food, or if there are dangerous enemies)."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
           <ExpandingListItem
             title="Give the project a distinct audiovisual style."
@@ -203,6 +216,8 @@ export const Seacosystem = () => {
             like you're looking out of a submarine window. I designed the fish
             sprites in Blender, and also did sound-design and composition for
             all the sound effects and background music."
+            textColor={content[2].bgColor}
+            bgColor={content[2].textColor}
           />
         </ul>
       </div>
@@ -243,7 +258,7 @@ function Project({
         flex-direction: ${left ? 'row-reverse' : 'row'};
         justify-content: space-between;
         margin-top: 0rem;
-        margin-bottom: 8rem;
+        margin-bottom: 0rem;
         position: relative;
         padding: 30px;
         border-radius: 0px;

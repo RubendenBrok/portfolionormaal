@@ -26,7 +26,7 @@ import vscode from '../../images/logos/vscode.png'
 
 export const AboutMe = () => {
   return (
-    <div className="container">
+    <div className="container" css={css``}>
       <Zoom cascade duration={1000}>
         <h1>About Me</h1>
       </Zoom>
@@ -56,9 +56,11 @@ export const AboutMe = () => {
             sorts of computer stuff, I also love making music (as a producer and
             keyboard player) and skateboarding.
           </p>
+
           <p
             css={css`
-              margin-bottom: 3rem;
+              margin: 3rem 0;
+              font-size: 1.3rem;
             `}
           >
             Want to work together?{' '}
@@ -67,11 +69,12 @@ export const AboutMe = () => {
             </a>
             , I'm always looking for new people to work with!
           </p>
+
           <ColoredBgText
             bgColor={content[1].accentColor1}
-            textColor={content[1].bgColor}
+            textColor={content[1].textColor}
             text="Languages / Frameworks / Programs:"
-            animated={true}
+            animated={false}
             fontSize="2rem"
             rounded
           />
@@ -82,34 +85,45 @@ export const AboutMe = () => {
               }
             `}
           ></div>
-          <LogoText
-            bgColor={content[1].bgColor}
-            text="Typescript"
-            path={typescript}
-          />
-          <LogoText
-            bgColor={content[1].bgColor}
-            text="Javascript"
-            path={javascript}
-          />
-          <LogoText bgColor={content[1].bgColor} text="React" path={react} />
-          <LogoText bgColor={content[1].bgColor} text="HTML" path={html} />
-          <LogoText bgColor={content[1].bgColor} text="CSS" path={cssLogo} />
-          <LogoText bgColor={content[1].bgColor} text="Gatsby" path={gatsby} />
-          <LogoText
-            bgColor={content[1].bgColor}
-            text="Photoshop"
-            path={photoshop}
-          />
-          <LogoText
-            bgColor={content[1].bgColor}
-            text="Blender"
-            path={blender}
-          />
-          <LogoText bgColor={content[1].bgColor} text="NPM" path={npm} />
-          <LogoText bgColor={content[1].bgColor} text="Git" path={git} />
-          <LogoText bgColor={content[1].bgColor} text="VSCode" path={vscode} />
+          <div>
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Typescript"
+              path={typescript}
+            />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Javascript"
+              path={javascript}
+            />
+            <LogoText bgColor={content[1].bgColor} text="React" path={react} />
+            <LogoText bgColor={content[1].bgColor} text="HTML" path={html} />
+            <LogoText bgColor={content[1].bgColor} text="CSS" path={cssLogo} />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Gatsby"
+              path={gatsby}
+            />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Photoshop"
+              path={photoshop}
+            />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Blender"
+              path={blender}
+            />
+            <LogoText bgColor={content[1].bgColor} text="NPM" path={npm} />
+            <LogoText bgColor={content[1].bgColor} text="Git" path={git} />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="VSCode"
+              path={vscode}
+            />
+          </div>
         </div>
+
         <div
           css={css`
             width: 40%;
@@ -121,7 +135,7 @@ export const AboutMe = () => {
         >
           <ColoredBgText
             bgColor="rgba(255,255,255,0)"
-            textColor={content[1].accentColor2}
+            textColor={content[1].textColor}
             text="Strong Points:"
             animated={true}
             fontSize="4rem"
@@ -129,8 +143,8 @@ export const AboutMe = () => {
           <Fade duration={2000} delay={700}>
             <div
               css={css`
-                color: ${content[1].bgColor};
-                background-color: ${content[1].accentColor2};
+                color: ${content[1].textColor};
+                background-color: ${content[1].accentColor1};
                 font-size: 1.2rem;
                 padding: 10px 25px 10px 10px;
                 border-radius: 10px;

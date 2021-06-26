@@ -19,10 +19,10 @@ export type contentType = {
 }
 
 export const colors = {
-  black: '#3a3a3a',
-  white: '#f0f0f0',
-  red: '#d66666',
-  blue: '#5462b4',
+  black: 'rgb(58, 58, 58)',
+  white: 'rgb(240, 240, 240)',
+  red: 'rgb(214, 102, 102)',
+  blue: 'rgb(84, 98, 180)',
 }
 
 export const content: contentType[] = [
@@ -39,18 +39,18 @@ export const content: contentType[] = [
   },
   {
     content: <AboutMe />,
-    bgColor: colors.white,
-    accentColor1: colors.red,
-    accentColor2: colors.blue,
+    bgColor: colors.blue,
+    accentColor1: colors.black,
+    accentColor2: colors.black,
     bgAngle: 39,
-    clipArr: [70, 50, 50],
+    clipArr: [50, 50, 50],
     clipOpacity: 1,
-    textColor: colors.black,
+    textColor: colors.white,
     name: 'AboutMe',
   },
   {
     content: <PassionProjects />,
-    bgColor: colors.blue,
+    bgColor: colors.black,
     accentColor1: colors.red,
     accentColor2: colors.blue,
     bgAngle: 39,

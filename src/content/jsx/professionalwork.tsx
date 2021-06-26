@@ -28,7 +28,7 @@ export const ProfessionalWork = () => {
     <div
       className="container"
       css={css`
-        padding-bottom: 25rem;
+        padding-bottom: 0rem;
       `}
     >
       <Zoom cascade duration={2000}>

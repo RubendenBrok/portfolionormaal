@@ -9,7 +9,7 @@ import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs'
 import Fade from 'react-reveal/Fade'
 
 import Header from './header'
-import content from '../content/content'
+import content, { colors } from '../content/content'
 import { variables } from '../styles/global'
 import { Global, css, jsx } from '@emotion/react'
 
@@ -28,7 +28,6 @@ type layoutProps = {
   clipArr: number[]
   clipOpacity: number
   currentBlockIndex: number
-  y: any
 }
 
 const Layout = ({
@@ -41,24 +40,9 @@ const Layout = ({
   clipArr,
   clipOpacity,
   currentBlockIndex,
-  y,
 }: layoutProps) => {
-  const initScrollAnimation = (amt: number) => {
-    if (typeof window !== 'undefined') {
-      const scrollOffset = window.innerHeight / 12
-      let element: any = document.getElementById(
-          content[currentBlockIndex + amt].name
-        ),
-        bodyRect = document.body.getBoundingClientRect(),
-        elemRect = element.getBoundingClientRect(),
-        offset = elemRect.top - bodyRect.top
-
-      y.start({
-        to: { y: offset - scrollOffset },
-        from: { y: window.pageYOffset },
-      })
-    }
-  }
+  const scrollOffset =
+    typeof window !== 'undefined' ? window.innerHeight / 12 : 100
 
   return (
     <div
@@ -118,7 +102,22 @@ const Layout = ({
                 cursor: pointer;
               }
             `}
-            onClick={() => initScrollAnimation(+1)}
+            onClick={() =>
+              //initScrollAnimation(+1)}
+              {
+                let element = document.getElementById(
+                  content[currentBlockIndex + 1].name
+                )
+                window.scrollTo({
+                  left: 0,
+                  top:
+                    element.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    scrollOffset,
+                  behavior: 'smooth',
+                })
+              }
+            }
           />
         )}
 
@@ -139,7 +138,24 @@ const Layout = ({
                 cursor: pointer;
               }
             `}
-            onClick={() => initScrollAnimation(-1)}
+            onClick={() =>
+              //initScrollAnimation(-1)}
+              {
+                {
+                  let element = document.getElementById(
+                    content[currentBlockIndex - 1].name
+                  )
+                  window.scrollTo({
+                    left: 0,
+                    top:
+                      element.getBoundingClientRect().top +
+                      window.pageYOffset -
+                      scrollOffset,
+                    behavior: 'smooth',
+                  })
+                }
+              }
+            }
           />
         )}
       </main>

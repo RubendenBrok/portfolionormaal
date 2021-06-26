@@ -9,7 +9,7 @@ type scrollProps = {
 
 import { interpolateNumber } from 'd3-interpolate'
 
-const minScale = 0.6,
+const minScale = 0.3,
   minOpacity = 0.2
 
 export const FancyScrollBlock = React.memo(function FancyScroll({
@@ -24,10 +24,12 @@ export const FancyScrollBlock = React.memo(function FancyScroll({
         width: 100%;
         position: relative;
       `}
-      style={{
-        opacity: opacity,
-        transform: `translate(${30 * (0 - (1 - scale))}%,0) scale(${scale})`,
-      }}
+      style={
+        {
+          //opacity: opacity,
+          //transform: `translate(${30 * (0 - (1 - scale))}%,0) scale(${scale})`,
+        }
+      }
     >
       {children}
     </div>
