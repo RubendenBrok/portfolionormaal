@@ -40,6 +40,7 @@ export const LandingPage = () => {
         >
           <div className="introFlexItem">A</div>
           <ColoredBgText
+            rounded
             animated
             text="CREATIVE"
             fontSize="2.5rem"
@@ -62,6 +63,7 @@ export const LandingPage = () => {
         >
           <div className="introFlexItem">Who</div>
           <ColoredBgText
+            rounded
             animated
             text="LOVES"
             fontSize="4rem"
@@ -71,6 +73,7 @@ export const LandingPage = () => {
           />
           <div className="introFlexItem">to create</div>
           <ColoredBgText
+            rounded
             animated
             text="PLAYFUL ONLINE EXPERIENCES"
             bgColor={content[0].accentColor2}

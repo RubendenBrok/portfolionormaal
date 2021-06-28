@@ -27,9 +27,24 @@ import vscode from '../../images/logos/vscode.png'
 export const AboutMe = () => {
   return (
     <div className="container" css={css``}>
-      <Zoom cascade duration={1000}>
-        <h1>About Me</h1>
-      </Zoom>
+      <div
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+        `}
+      >
+        <div>
+          <Zoom cascade duration={1000}>
+            <h1>About </h1>
+          </Zoom>
+        </div>
+        <div>
+          {' '}
+          <Zoom cascade duration={1000}>
+            <h1> Me</h1>
+          </Zoom>
+        </div>
+      </div>
       <div
         css={css`
           display: flex;
@@ -71,9 +86,61 @@ export const AboutMe = () => {
           </p>
 
           <ColoredBgText
-            bgColor={content[1].accentColor1}
+            bgColor={content[1].bgColor}
             textColor={content[1].textColor}
-            text="Languages / Frameworks / Programs:"
+            text="Languages:"
+            animated={false}
+            fontSize="2rem"
+            rounded
+          />
+          <div
+            css={css`
+              ${variables.mobile} {
+                height: 1rem;
+              }
+            `}
+          ></div>
+          <div>
+            <LogoText bgColor={content[1].bgColor} text="HTML" path={html} />
+            <LogoText bgColor={content[1].bgColor} text="CSS" path={cssLogo} />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Javascript"
+              path={javascript}
+            />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Typescript"
+              path={typescript}
+            />
+          </div>
+          <ColoredBgText
+            bgColor={content[1].bgColor}
+            textColor={content[1].textColor}
+            text="Frameworks / libraries:"
+            animated={false}
+            fontSize="2rem"
+            rounded
+          />
+          <div
+            css={css`
+              ${variables.mobile} {
+                height: 1rem;
+              }
+            `}
+          ></div>
+          <div>
+            <LogoText bgColor={content[1].bgColor} text="React" path={react} />
+            <LogoText
+              bgColor={content[1].bgColor}
+              text="Gatsby"
+              path={gatsby}
+            />
+          </div>
+          <ColoredBgText
+            bgColor={content[1].bgColor}
+            textColor={content[1].textColor}
+            text="Programs:"
             animated={false}
             fontSize="2rem"
             rounded
@@ -88,24 +155,6 @@ export const AboutMe = () => {
           <div>
             <LogoText
               bgColor={content[1].bgColor}
-              text="Typescript"
-              path={typescript}
-            />
-            <LogoText
-              bgColor={content[1].bgColor}
-              text="Javascript"
-              path={javascript}
-            />
-            <LogoText bgColor={content[1].bgColor} text="React" path={react} />
-            <LogoText bgColor={content[1].bgColor} text="HTML" path={html} />
-            <LogoText bgColor={content[1].bgColor} text="CSS" path={cssLogo} />
-            <LogoText
-              bgColor={content[1].bgColor}
-              text="Gatsby"
-              path={gatsby}
-            />
-            <LogoText
-              bgColor={content[1].bgColor}
               text="Photoshop"
               path={photoshop}
             />
@@ -116,11 +165,6 @@ export const AboutMe = () => {
             />
             <LogoText bgColor={content[1].bgColor} text="NPM" path={npm} />
             <LogoText bgColor={content[1].bgColor} text="Git" path={git} />
-            <LogoText
-              bgColor={content[1].bgColor}
-              text="VSCode"
-              path={vscode}
-            />
           </div>
         </div>
 
@@ -140,11 +184,11 @@ export const AboutMe = () => {
             animated={true}
             fontSize="4rem"
           />
-          <Fade duration={2000} delay={700}>
+          <Fade duration={2000} delay={300}>
             <div
               css={css`
-                color: ${content[1].textColor};
-                background-color: ${content[1].accentColor1};
+                color: ${content[1].accentColor1};
+                background-color: ${content[1].textColor};
                 font-size: 1.2rem;
                 padding: 10px 25px 10px 10px;
                 border-radius: 10px;

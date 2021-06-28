@@ -20,9 +20,23 @@ import ExpandingListItem from '../../components/hovertextlist'
 export const PassionProjects = () => {
   return (
     <div className="container">
-      <Zoom cascade duration={2000}>
-        <h1>Passion Projects</h1>
-      </Zoom>
+      <div
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+        `}
+      >
+        <div>
+          <Zoom cascade duration={2000}>
+            <h1>Passion </h1>
+          </Zoom>
+        </div>
+        <div>
+          <Zoom cascade duration={2000} delay={1000}>
+            <h1>Projects</h1>
+          </Zoom>
+        </div>
+      </div>
       <Fade left distance="-40%">
         <p
           css={css`
@@ -108,29 +122,29 @@ export const Flow = () => {
           `}
         >
           <ExpandingListItem
-            title="Get comfortable using React"
+            title="- Get comfortable using React"
             text="Flow was the first thing I built in React, and partially started as
             an exploration of the framework."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
           <ExpandingListItem
-            title="Clear visual UI"
+            title="-Design a clear visual UI"
             text="I wanted to create a minimalistic user interface. The main
             target was to make the relation between the users input and the
             changes in music as clear as possible."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
           <ExpandingListItem
-            title="Random generation of music that still sounds cohesive and musical"
+            title="- Random generation of music that still sounds cohesive and musical"
             text="I composed and created all the samples Flow uses in Logic.
             Each sample has an array of chords it can be played on, this ensures
             that samples will stay the same when they can (which gives a more
             musical sound) but will always fit together with the current
             harmony."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
         </ul>
       </div>
@@ -192,32 +206,32 @@ export const Seacosystem = () => {
           `}
         >
           <ExpandingListItem
-            title="Build a simulation system in which agents take different actions
+            title="- Build a simulation system in which agents take different actions
             based on their current state (eg. Hunger, fleeing etc.)."
             text="This was the first challenge of the project. Each fish should
             constantly reassess its surroundings and inner state to decide on
             its next actions."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
           <ExpandingListItem
-            title="Have the agents in the simulation 'evolve'."
+            title="- Have the agents in the simulation 'evolve'."
             text="When a new fish is born, it inherits its parents properties, but
             also randomly evolves. This makes a basic form of natural selection
             possible (over time the fish will get quicker, if there is a
             scarcity of food, or if there are dangerous enemies)."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
           <ExpandingListItem
-            title="Give the project a distinct audiovisual style."
+            title="- Give the project a distinct audiovisual style."
             text="I tried to give the whole project its own style, to make it
             feel more polished. In the end I went for a retro-ish look, a bit
             like you're looking out of a submarine window. I designed the fish
             sprites in Blender, and also did sound-design and composition for
             all the sound effects and background music."
-            textColor={content[2].bgColor}
-            bgColor={content[2].textColor}
+            textColor={content[2].textColor}
+            bgColor={content[2].bgColor}
           />
         </ul>
       </div>
@@ -269,11 +283,9 @@ function Project({
       `}
       onMouseEnter={() => {
         setHover(true)
-        document.getElementById(video).play()
       }}
       onMouseLeave={() => {
         setHover(false)
-        document.getElementById(video).pause()
       }}
     >
       <div
@@ -308,6 +320,8 @@ function Project({
           id={video}
           src={video}
           loop
+          muted
+          autoPlay
           css={css`
             max-width: 100%;
             max-height: 100%;

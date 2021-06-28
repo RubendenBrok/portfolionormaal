@@ -18,7 +18,6 @@ export const ExpandingListItem = ({
   bgColor,
   textColor,
 }: listProps) => {
-  console.log(textColor)
   const [exp, setExp] = useState(false)
 
   const [pos, setPos] = useState({ x: 0, y: 0 })
@@ -29,10 +28,18 @@ export const ExpandingListItem = ({
   })
 
   const enter = (e: any, exp: boolean) => {
+    setExp(exp)
+    const newPos = updatePos(e)
+    setPos(newPos)
+  }
+
+  const updatePos = (e: any) => {
     const rect = e.target.getBoundingClientRect()
     const newPos = { x: e.clientX - rect.left, y: e.clientY - rect.top }
-    setExp(exp)
-    setPos(newPos)
+    if (newPos.x + rect.left > window.innerWidth * 0.8 - 40) {
+      newPos.x = window.innerWidth * 0.8 - rect.left - 40
+    }
+    return newPos
   }
 
   return (
@@ -40,6 +47,9 @@ export const ExpandingListItem = ({
       css={css`
         position: relative;
         transition: transform 0.4s;
+        list-style: none;
+        margin-left: -1rem;
+
         &:hover {
           transform: scale(1.05) translateX(2%);
         }
@@ -50,8 +60,8 @@ export const ExpandingListItem = ({
       onBlur={() => setExp(false)}
       onMouseMove={(e) => {
         if (exp) {
-          const rect = e.target.getBoundingClientRect()
-          setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top })
+          const newPos = updatePos(e)
+          setPos(newPos)
         }
       }}
     >
@@ -67,6 +77,7 @@ export const ExpandingListItem = ({
       <br />
       {exp && (
         <div
+          id="hoverText"
           css={css`
             border-radius: 10px;
             padding: 1rem;
@@ -75,13 +86,14 @@ export const ExpandingListItem = ({
             width: 40vw;
             position: absolute;
             transform: translateX(-50%);
+            border: 1px solid ${textColor};
             z-index: 9999;
             @keyframes expand {
               from {
-                clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+                opacity: 0;
               }
               to {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                opacity: 1;
               }
             }
             animation: expand 0.5s forwards;
@@ -89,7 +101,7 @@ export const ExpandingListItem = ({
           style={{
             left: pos.x,
             top: pos.y,
-            color: '#3a3a3a',
+            color: textColor,
             backgroundColor: bgColor,
           }}
         >

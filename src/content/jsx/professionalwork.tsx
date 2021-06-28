@@ -31,9 +31,23 @@ export const ProfessionalWork = () => {
         padding-bottom: 0rem;
       `}
     >
-      <Zoom cascade duration={2000}>
-        <h1>Professional Work</h1>
-      </Zoom>
+      <div
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+        `}
+      >
+        <div>
+          <Zoom cascade duration={2000}>
+            <h1>Professional</h1>
+          </Zoom>
+        </div>
+        <div>
+          <Zoom cascade duration={2000}>
+            <h1> Work</h1>
+          </Zoom>
+        </div>
+      </div>
       <WorkItem
         title="The Golden Coach"
         myRole={

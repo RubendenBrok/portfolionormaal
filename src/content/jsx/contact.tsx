@@ -61,8 +61,13 @@ export const Contact = () => {
             always looking for great people to work with!
           </p>
 
-          <a href="mailto:ruben_b@hotmail.com">
-            <h4>EMAIL ME</h4>
+          <a
+            css={css`
+              user-select: text;
+            `}
+            href="mailto:ruben_b@hotmail.com"
+          >
+            <h4>EMAIL: ruben_b@hotmail.com</h4>
           </a>
           <a href="mailto:ruben_b@hotmail.com">
             <h4>CONTACT ME ON LINKEDIN</h4>
@@ -87,6 +92,10 @@ export const Contact = () => {
             css={css`
               margin-top: 1rem;
             `}
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify
           >
             <div className="formDiv">
               <label htmlFor="Name" className="inputLabel">
