@@ -46,10 +46,10 @@ export const LandingPage = () => {
               align-items: center;
             `}
           >
-            <Flip top cascade duration={2000} delay={400}>
+            <Flip ssrReveal top cascade duration={2000} delay={400}>
               <h1 className="titleBig">Ruben&nbsp;</h1>
             </Flip>
-            <Flip top cascade duration={2000} delay={600}>
+            <Flip ssrReveal top cascade duration={2000} delay={600}>
               <h1
                 css={css`
                   margin-top: 0rem;
@@ -60,7 +60,7 @@ export const LandingPage = () => {
               </h1>
               <h1 className="titleBig">&nbsp;</h1>
             </Flip>
-            <Flip top cascade duration={2000} delay={800}>
+            <Flip ssrReveal top cascade duration={2000} delay={800}>
               <h1 className="titleBig">Brok</h1>
             </Flip>
           </div>
@@ -144,13 +144,13 @@ export const LandingPage = () => {
               margin-bottom: 5vh;
             `}
           >
-            <Flip top cascade duration={2000} delay={400}>
+            <Flip ssrReveal top cascade duration={2000} delay={400}>
               <h1 className="titleBig">Ruben&nbsp;</h1>
             </Flip>
-            <Flip top cascade duration={2000} delay={600}>
+            <Flip ssrReveal top cascade duration={2000} delay={600}>
               <h1 className="titleSmall">den</h1>
             </Flip>
-            <Flip top cascade duration={2000} delay={800}>
+            <Flip ssrReveal top cascade duration={2000} delay={800}>
               <h1 className="titleBig">Brok</h1>
             </Flip>
           </div>
