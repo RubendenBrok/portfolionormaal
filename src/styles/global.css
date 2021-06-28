@@ -59,6 +59,14 @@ h1 {
   font-size: 8rem;
 }
 
+.titleBig {
+  font-size: 10rem;
+}
+
+.titleSmall {
+  font-size: 4rem;
+}
+
 .navLinkMobile {
   margin: 1.5rem 2rem;
   font-family: 'Staatliches';
@@ -142,5 +150,27 @@ a {
   }
   .navLinkMobile {
     font-size: 2rem;
+  }
+
+  .titleBig {
+    font-size: 30vw;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 0;
+    line-height: 25vw;
+  }
+  .titleSmall {
+    font-size: 14vw;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 0;
+  }
+
+  .introP {
+    font-size: 4vh;
+  }
+
+  .introFlexItem {
+    font-size: 3vh;
   }
 }

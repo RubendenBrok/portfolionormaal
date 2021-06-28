@@ -95,7 +95,7 @@ export const Contact = () => {
             name="contact"
             method="POST"
             data-netlify="true"
-            netlify
+            action="/"
           >
             <div className="formDiv">
               <label htmlFor="Name" className="inputLabel">
