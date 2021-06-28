@@ -16,7 +16,7 @@ export const MobileMenu = ({ textColor, bgColor }: MobileMenu) => {
   const [open, setOpen] = useState(false)
 
   const styles = useSpring({
-    right: open ? '20px' : '-460px',
+    right: open ? '20px' : window ? -window.innerWidth + 'px' : '-500px',
   })
 
   return (

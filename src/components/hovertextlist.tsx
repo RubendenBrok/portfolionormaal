@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 
 import { animated, useSpring } from 'react-spring'
 
+import { variables } from '../styles/global'
+
 type listProps = {
   title: string
   text: string
@@ -97,6 +99,9 @@ export const ExpandingListItem = ({
               }
             }
             animation: expand 0.5s forwards;
+            ${variables.mobile} {
+              display: none;
+            }
           `}
           style={{
             left: pos.x,

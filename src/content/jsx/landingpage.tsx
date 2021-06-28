@@ -50,7 +50,14 @@ export const LandingPage = () => {
               <h1 className="titleBig">Ruben&nbsp;</h1>
             </Flip>
             <Flip top cascade duration={2000} delay={600}>
-              <h1 className="titleSmall">den</h1>
+              <h1
+                css={css`
+                  margin-top: 0rem;
+                `}
+                className="titleSmall"
+              >
+                den
+              </h1>
               <h1 className="titleBig">&nbsp;</h1>
             </Flip>
             <Flip top cascade duration={2000} delay={800}>

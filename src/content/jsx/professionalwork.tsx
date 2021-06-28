@@ -38,12 +38,12 @@ export const ProfessionalWork = () => {
         `}
       >
         <div>
-          <Zoom cascade duration={2000}>
+          <Zoom cascade duration={1000}>
             <h1>Professional</h1>
           </Zoom>
         </div>
         <div>
-          <Zoom cascade duration={2000}>
+          <Zoom cascade duration={1000} delay={600}>
             <h1> Work</h1>
           </Zoom>
         </div>

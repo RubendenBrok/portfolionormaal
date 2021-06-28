@@ -33,7 +33,7 @@ export const Contact = () => {
         padding-bottom: 10rem;
       `}
     >
-      <Zoom cascade duration={2000}>
+      <Zoom cascade duration={1000}>
         <h1>CONTACT</h1>
       </Zoom>
       <div
@@ -97,6 +97,8 @@ export const Contact = () => {
             data-netlify="true"
             action="/"
           >
+            <input type="hidden" name="form-name" value="contact" />
+
             <div className="formDiv">
               <label htmlFor="Name" className="inputLabel">
                 Name:

@@ -27,12 +27,12 @@ export const PassionProjects = () => {
         `}
       >
         <div>
-          <Zoom cascade duration={2000}>
+          <Zoom cascade duration={1000}>
             <h1>Passion </h1>
           </Zoom>
         </div>
         <div>
-          <Zoom cascade duration={2000} delay={1000}>
+          <Zoom cascade duration={1000} delay={600}>
             <h1>Projects</h1>
           </Zoom>
         </div>
@@ -45,7 +45,9 @@ export const PassionProjects = () => {
             margin-bottom: 4rem;
             font-size: 1.4rem;
             ${variables.mobile} {
+              margin-top: 0;
               max-width: 100%;
+              font-size: 1.1rem;
             }
           `}
         >
@@ -95,7 +97,7 @@ export const Flow = () => {
             margin-top: 5rem;
             text-align: left;
             ${variables.mobile} {
-              margin-top: 2rem;
+              margin-top: 4rem;
             }
           `}
         >
@@ -180,7 +182,7 @@ export const Seacosystem = () => {
             margin-top: 5rem;
             text-align: left;
             ${variables.mobile} {
-              margin-top: 2rem;
+              margin-top: 4rem;
             }
           `}
         >
@@ -399,18 +401,20 @@ function Project({
           css={css`
             text-align: left;
             width: 100%;
-            margin-top: 4rem;
+            margin-top: 1rem;
             margin-bottom: -2.5rem;
+            ${variables.mobile} {
+              margin-top: 4rem;
+            }
           `}
         >
-          <ColoredBgText
-            text="ABOUT:"
-            bgColor={colors.black}
-            animated
-            textColor={content[2].textColor}
-            fontSize="3.5rem"
-            rounded
-          />
+          <h2
+            css={css`
+              font-size: 2rem;
+            `}
+          >
+            ABOUT:
+          </h2>
         </div>
         {children}
       </div>

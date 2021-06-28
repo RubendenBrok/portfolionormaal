@@ -192,6 +192,9 @@ export const AboutMe = () => {
                 font-size: 1.2rem;
                 padding: 10px 25px 10px 10px;
                 border-radius: 10px;
+                ${variables.mobile} {
+                  font-size: 1rem;
+                }
               `}
             >
               <ul>
@@ -241,6 +244,7 @@ function LogoText({ text, path, bgColor }: logoProps) {
         position: relative;
         margin: 30px 0;
         width: 21%;
+        max-width: 6rem;
         height: 4rem;
         ${variables.mobile} {
           margin: 5px 0;
