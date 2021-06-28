@@ -69,10 +69,16 @@ export const Contact = () => {
           >
             <h4>EMAIL: ruben_b@hotmail.com</h4>
           </a>
-          <a href="mailto:ruben_b@hotmail.com">
+          <a
+            href="https://www.linkedin.com/in/ruben-den-brok-87165b30/"
+            target="blank"
+          >
             <h4>CONTACT ME ON LINKEDIN</h4>
           </a>
-          <a href="mailto:ruben_b@hotmail.com">
+          <a
+            href="https://github.com/RubendenBrok?tab=repositories"
+            target="blank"
+          >
             <h4>CHECK OUT MY GITHUB</h4>
           </a>
         </div>
