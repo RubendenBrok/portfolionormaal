@@ -156,7 +156,7 @@ const IndexPage = () => {
 
   return (
     <Layout {...pageStyleProps}>
-      <SEO title="Home" />
+      <SEO title={content[pageStyleProps.currentBlockIndex].title} />
 
       {content.map((block: contentType, index: number) => {
         return (

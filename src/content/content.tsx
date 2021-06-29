@@ -16,6 +16,7 @@ export type contentType = {
   clipArr: number[]
   clipOpacity: number
   name: string
+  title: string
 }
 
 export const colors = {
@@ -36,17 +37,20 @@ export const content: contentType[] = [
     clipOpacity: 1,
     textColor: colors.black,
     name: 'Home',
+    title: 'Home',
   },
+
   {
-    content: <AboutMe />,
-    bgColor: colors.blue,
+    content: <ProfessionalWork />,
+    bgColor: colors.red,
     accentColor1: colors.black,
-    accentColor2: colors.black,
-    bgAngle: 39,
-    clipArr: [50, 50, 50],
+    accentColor2: colors.blue,
+    bgAngle: 256,
+    clipArr: [55, 100, 150],
     clipOpacity: 1,
     textColor: colors.white,
-    name: 'AboutMe',
+    name: 'ProfessionalWork',
+    title: 'Proffesional Work',
   },
   {
     content: <PassionProjects />,
@@ -58,18 +62,21 @@ export const content: contentType[] = [
     clipOpacity: 0,
     textColor: colors.white,
     name: 'PassionProjects',
+    title: 'Passion Projects',
   },
   {
-    content: <ProfessionalWork />,
-    bgColor: colors.red,
+    content: <AboutMe />,
+    bgColor: colors.blue,
     accentColor1: colors.black,
-    accentColor2: colors.blue,
-    bgAngle: 256,
-    clipArr: [55, 100, 150],
+    accentColor2: colors.black,
+    bgAngle: 39,
+    clipArr: [50, 60, 50],
     clipOpacity: 1,
     textColor: colors.white,
-    name: 'ProfessionalWork',
+    name: 'AboutMe',
+    title: 'About Me',
   },
+
   {
     content: <Contact />,
     bgColor: colors.white,
@@ -80,6 +87,7 @@ export const content: contentType[] = [
     clipOpacity: 1,
     textColor: colors.black,
     name: 'Contact',
+    title: 'Contact',
   },
 ]
 

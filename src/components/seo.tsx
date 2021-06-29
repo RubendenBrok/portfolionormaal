@@ -10,6 +10,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import ogimg from '../images/ogimg.jpg'
+
 interface Props {
   description?: string
   lang?: string
@@ -43,20 +45,30 @@ const SEO = ({ description, lang, meta, title }: Props) => {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: 'charSet',
+          content: 'utf-8',
+        },
+        {
           name: `description`,
-          content: metaDescription,
+          content:
+            'Ruben den Brok is a creative freelance webdeveloper and designer who specializes in fun and interactive user experiences.',
         },
         {
           property: `og:title`,
-          content: title,
+          content: 'Ruben den Brok | Webdeveloper & designer',
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content:
+            'Ruben den Brok is a creative freelance webdeveloper and designer who specializes in fun and interactive user experiences.',
         },
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: ogimg,
         },
         {
           name: `twitter:card`,
@@ -64,7 +76,7 @@ const SEO = ({ description, lang, meta, title }: Props) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: 'Ruben den Brok',
         },
         {
           name: `twitter:title`,
@@ -72,7 +84,8 @@ const SEO = ({ description, lang, meta, title }: Props) => {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content:
+            'Ruben den Brok is a creative freelance webdeveloper and designer who specializes in fun and interactive user experiences.',
         },
       ].concat(meta)}
     />

@@ -86,8 +86,8 @@ export const AboutMe = () => {
           </p>
 
           <ColoredBgText
-            bgColor={content[1].bgColor}
-            textColor={content[1].textColor}
+            bgColor={content[3].bgColor}
+            textColor={content[3].textColor}
             text="Languages:"
             animated={false}
             fontSize="2rem"
@@ -101,22 +101,22 @@ export const AboutMe = () => {
             `}
           ></div>
           <div>
-            <LogoText bgColor={content[1].bgColor} text="HTML" path={html} />
-            <LogoText bgColor={content[1].bgColor} text="CSS" path={cssLogo} />
+            <LogoText bgColor={content[3].bgColor} text="HTML" path={html} />
+            <LogoText bgColor={content[3].bgColor} text="CSS" path={cssLogo} />
             <LogoText
-              bgColor={content[1].bgColor}
+              bgColor={content[3].bgColor}
               text="Javascript"
               path={javascript}
             />
             <LogoText
-              bgColor={content[1].bgColor}
+              bgColor={content[3].bgColor}
               text="Typescript"
               path={typescript}
             />
           </div>
           <ColoredBgText
-            bgColor={content[1].bgColor}
-            textColor={content[1].textColor}
+            bgColor={content[3].bgColor}
+            textColor={content[3].textColor}
             text="Frameworks / libraries:"
             animated={false}
             fontSize="2rem"
@@ -130,16 +130,16 @@ export const AboutMe = () => {
             `}
           ></div>
           <div>
-            <LogoText bgColor={content[1].bgColor} text="React" path={react} />
+            <LogoText bgColor={content[3].bgColor} text="React" path={react} />
             <LogoText
-              bgColor={content[1].bgColor}
+              bgColor={content[3].bgColor}
               text="Gatsby"
               path={gatsby}
             />
           </div>
           <ColoredBgText
-            bgColor={content[1].bgColor}
-            textColor={content[1].textColor}
+            bgColor={content[3].bgColor}
+            textColor={content[3].textColor}
             text="Programs:"
             animated={false}
             fontSize="2rem"
@@ -154,17 +154,17 @@ export const AboutMe = () => {
           ></div>
           <div>
             <LogoText
-              bgColor={content[1].bgColor}
+              bgColor={content[3].bgColor}
               text="Photoshop"
               path={photoshop}
             />
             <LogoText
-              bgColor={content[1].bgColor}
+              bgColor={content[3].bgColor}
               text="Blender"
               path={blender}
             />
-            <LogoText bgColor={content[1].bgColor} text="NPM" path={npm} />
-            <LogoText bgColor={content[1].bgColor} text="Git" path={git} />
+            <LogoText bgColor={content[3].bgColor} text="NPM" path={npm} />
+            <LogoText bgColor={content[3].bgColor} text="Git" path={git} />
           </div>
         </div>
 
@@ -179,7 +179,7 @@ export const AboutMe = () => {
         >
           <ColoredBgText
             bgColor="rgba(255,255,255,0)"
-            textColor={content[1].textColor}
+            textColor={content[3].textColor}
             text="Strong Points:"
             animated={true}
             fontSize="4rem"
@@ -187,8 +187,8 @@ export const AboutMe = () => {
           <Fade duration={2000} delay={300}>
             <div
               css={css`
-                color: ${content[1].accentColor1};
-                background-color: ${content[1].textColor};
+                color: ${content[3].accentColor1};
+                background-color: ${content[3].textColor};
                 font-size: 1.2rem;
                 padding: 10px 25px 10px 10px;
                 border-radius: 10px;

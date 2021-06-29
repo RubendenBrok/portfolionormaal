@@ -131,7 +131,7 @@ export const Flow = () => {
             bgColor={content[2].bgColor}
           />
           <ExpandingListItem
-            title="-Design a clear visual UI"
+            title="- Design a clear visual UI"
             text="I wanted to create a minimalistic user interface. The main
             target was to make the relation between the users input and the
             changes in music as clear as possible."
@@ -349,7 +349,7 @@ function Project({
               min-width: 150px;
             `}
           >
-            Techniques used:
+            Technologies used:
           </h2>
           <p
             css={css`
@@ -418,6 +418,26 @@ function Project({
         </div>
         {children}
       </div>
+      <a
+        href={link}
+        target="blank"
+        css={css`
+          text-align: ${left ? 'right' : 'left'};
+        `}
+      >
+        <h2
+          css={css`
+            font-size: 1.6rem;
+            transform: translateY(-5rem);
+
+            ${variables.desktop} {
+              display: none;
+            }
+          `}
+        >
+          Visit Website
+        </h2>
+      </a>
     </div>
   )
 }

@@ -16,12 +16,26 @@ import content, { colors } from '../content'
 export const LandingPage = () => {
   const [mobile, setMobile] = useState(false)
 
+  const handleResize = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < variables.breakPoint) {
+        setMobile(true)
+      }
+      if (window.innerWidth >= variables.breakPoint) {
+        setMobile(false)
+      }
+    }
+  }
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < variables.breakPoint) {
         setMobile(true)
       }
+      window.addEventListener('resize', handleResize)
     }
+
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (

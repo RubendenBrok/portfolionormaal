@@ -64,9 +64,9 @@ export const ProfessionalWork = () => {
             <h2
               css={css`
                 margin-bottom: 0rem;
-                font-size: 2.5rem;
+                font-size: 1.7rem;
                 ${variables.mobile} {
-                  font-size: 1.5rem;
+                  font-size: 1.3rem;
                 }
               `}
             >
@@ -83,9 +83,9 @@ export const ProfessionalWork = () => {
             <h2
               css={css`
                 margin-bottom: 0rem;
-                font-size: 2.5rem;
+                font-size: 1.7rem;
                 ${variables.mobile} {
-                  font-size: 1.5rem;
+                  font-size: 1.3rem;
                 }
               `}
             >
@@ -93,6 +93,19 @@ export const ProfessionalWork = () => {
             </h2>
             <a href="https://verveagency.com/" target="blank">
               Verve by Vruchtvlees
+            </a>
+            <a href="https://www.goudenkoets.nl/" target="blank">
+              <h2
+                css={css`
+                  margin-bottom: 0rem;
+                  font-size: 2.5rem;
+                  ${variables.mobile} {
+                    font-size: 1.8rem;
+                  }
+                `}
+              >
+                Visit Website
+              </h2>
             </a>
           </div>
         }
