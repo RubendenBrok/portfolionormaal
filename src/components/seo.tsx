@@ -51,11 +51,11 @@ const SEO = ({ description, lang, meta, title }: Props) => {
         {
           name: `description`,
           content:
-            'Ruben den Brok is a creative freelance webdeveloper and designer who specializes in fun and interactive user experiences.',
+            "I'm a creative freelance webdeveloper and designer who specializes in fun and interactive user experiences.",
         },
         {
           property: `og:title`,
-          content: 'Ruben den Brok | Webdeveloper & designer',
+          content: 'Ruben den Brok | Webdeveloper & Designer',
         },
         {
           property: `og:description`,
