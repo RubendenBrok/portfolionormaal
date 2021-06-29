@@ -50,7 +50,7 @@ export const content: contentType[] = [
     clipOpacity: 1,
     textColor: colors.white,
     name: 'ProfessionalWork',
-    title: 'Proffesional Work',
+    title: 'Professional Work',
   },
   {
     content: <PassionProjects />,

@@ -110,6 +110,7 @@ export const ProfessionalWork = () => {
           </div>
         }
         img={data.gkImg.childImageSharp.gatsbyImageData}
+        imgAlt="the golden coach"
       >
         <ExpandingTextBlock
           bgColor={content[3].bgColor}
@@ -163,7 +164,14 @@ export const ProfessionalWork = () => {
 
 type WorkItem = any
 
-const WorkItem = ({ img, myRole, title, title2, children }: WorkItem) => {
+const WorkItem = ({
+  img,
+  imgAlt,
+  myRole,
+  title,
+  title2,
+  children,
+}: WorkItem) => {
   return (
     <div
       css={css`
@@ -200,7 +208,7 @@ const WorkItem = ({ img, myRole, title, title2, children }: WorkItem) => {
           />
         )}
       </div>
-      <GatsbyImage image={img} alt="Gouden Koets" />
+      <GatsbyImage image={img} alt={imgAlt} />
       <div
         css={css`
           width: 100%;

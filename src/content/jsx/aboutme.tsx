@@ -270,6 +270,7 @@ function LogoText({ text, path, bgColor }: logoProps) {
             height: 3rem;
           }
         `}
+        alt={text}
       ></img>
       <a
         css={css`
